@@ -1,10 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 :focus {
@@ -17,7 +18,11 @@ body {
   height: 100vh;
 }
 
-body, input,  button, textarea {
-  font-family: 'Montserrat', sans-serif;
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 `;
