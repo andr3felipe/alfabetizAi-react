@@ -1,22 +1,21 @@
-import { useState } from 'react';
-import { Button, Drawer } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { Button, Drawer } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
-import { Menu } from './styles';
+import { Menu } from "./styles";
 
 interface HeaderMobileProps {
   children: React.ReactNode;
+  toggleMenu: () => void;
+  open: boolean;
 }
 
-const HeaderMobile = ({ children }: HeaderMobileProps) => {
-  const [open, setOpen] = useState<boolean>(false);
-
+const HeaderMobile = ({ children, toggleMenu, open }: HeaderMobileProps) => {
   return (
     <Menu>
-      <Button onClick={() => setOpen((state) => !state)}>
-        <MenuIcon sx={{ color: '#fff' }} fontSize="large" />
+      <Button onClick={toggleMenu}>
+        <MenuIcon sx={{ color: "#fff" }} fontSize="large" />
       </Button>
-      <Drawer anchor={'right'} open={open} onClose={() => setOpen(false)}>
+      <Drawer anchor={"right"} open={open}>
         {children}
       </Drawer>
     </Menu>

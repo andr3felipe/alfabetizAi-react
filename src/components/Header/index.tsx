@@ -1,9 +1,16 @@
-import * as S from './styles';
-import logotipo from '../../assets/logotipo.svg';
-import NavButton from '../NavButton';
-import HeaderMobile from '../HeaderMobile';
+import * as S from "./styles";
+import logotipo from "../../assets/logotipo.svg";
+import NavButton from "../NavButton";
+import HeaderMobile from "../HeaderMobile";
+import { useState } from "react";
 
 export const Header = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  function toggleMenu() {
+    setOpen((state) => !state);
+  }
+
   return (
     <S.Header>
       <S.Container>
@@ -22,28 +29,36 @@ export const Header = () => {
         <S.Navigation>
           <ul>
             <li>
-              <NavButton to="/cadastro">Login</NavButton>
+              <NavButton to="/login">Login</NavButton>
             </li>
             <li>
               <NavButton to="/cadastro">Cadastre-se</NavButton>
             </li>
           </ul>
         </S.Navigation>
-        <HeaderMobile>
-          <ul>
+        <HeaderMobile toggleMenu={toggleMenu} open={open}>
+          <S.MobileNavigation>
             <li>
-              <NavButton to="/">Início</NavButton>
+              <NavButton to="/" onClick={() => setOpen(false)}>
+                Início
+              </NavButton>
             </li>
             <li>
-              <NavButton to="/saladeaula">Sala de Aula</NavButton>
+              <NavButton to="/saladeaula" onClick={() => setOpen(false)}>
+                Sala de Aula
+              </NavButton>
             </li>
             <li>
-              <NavButton to="/cadastro">Login</NavButton>
+              <NavButton to="/login" onClick={() => setOpen(false)}>
+                Login
+              </NavButton>
             </li>
             <li>
-              <NavButton to="/cadastro">Cadastre-se</NavButton>
+              <NavButton to="/cadastro" onClick={() => setOpen(false)}>
+                Cadastre-se
+              </NavButton>
             </li>
-          </ul>
+          </S.MobileNavigation>
         </HeaderMobile>
       </S.Container>
     </S.Header>
