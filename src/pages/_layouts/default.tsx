@@ -7,9 +7,7 @@ export function DefaultLayout() {
     <>
       <Header />
 
-      <div>
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }
