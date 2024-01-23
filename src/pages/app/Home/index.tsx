@@ -54,6 +54,18 @@ export const Home = () => {
           </div>
         </S.SectionContainer>
       </S.FacilityAndSecurity>
+
+      <S.SectionContainer>
+        <S.AdvanceTowardsYourGrowth>
+          <S.Heading color="yellow">
+            Avance em direção ao seu crescimento!
+          </S.Heading>
+
+          <NavButton to="cadastro" backgroundColor="red-dark">
+            Cadastre-se
+          </NavButton>
+        </S.AdvanceTowardsYourGrowth>
+      </S.SectionContainer>
     </S.Container>
   );
 };

@@ -90,3 +90,16 @@ export const FacilityAndSecurity = styled.section`
     }
   }
 `;
+
+export const AdvanceTowardsYourGrowth = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  gap: 2rem;
+  text-align: center;
+
+  > h2 {
+    font-size: 3.5rem;
+  }
+`;
