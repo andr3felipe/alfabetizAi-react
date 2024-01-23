@@ -13,8 +13,21 @@ export const Container = styled.main``;
 export const SectionContainer = styled.div`
   max-width: 1440px;
   margin: 0 auto;
-  margin-top: 3rem;
-  padding: 1rem;
+  padding: 4rem 8rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+  }
+`;
+
+export const Heading = styled.h2<Heading>`
+  font-size: 2.25rem;
+  color: ${(props) => props.theme[props.color]};
+`;
+
+export const Paragraph = styled.p<Paragraph>`
+  color: ${(props) => props.theme[props.color || "blue-dark"]};
+  font-weight: 500;
 `;
 
 export const Hero = styled.section`
@@ -25,6 +38,9 @@ export const Hero = styled.section`
   gap: 2rem;
 
   div:first-of-type {
+    flex: 1;
+    flex-basis: 25rem;
+
     > h1 {
       color: ${(props) => props.theme["yellow"]};
       font-size: 2.25rem;
@@ -47,12 +63,30 @@ export const Hero = styled.section`
   }
 `;
 
-export const Heading = styled.h2<Heading>`
-  font-size: 2.25rem;
-  color: ${(props) => props.theme[props.color]};
-`;
+export const FacilityAndSecurity = styled.section`
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap-reverse;
+    gap: 2rem;
+  }
 
-export const Paragraph = styled.p<Paragraph>`
-  color: ${(props) => props.theme[props.color || "blue-dark"]};
-  font-weight: 500;
+  background-color: ${(props) => props.theme.background};
+
+  div:first-of-type {
+    flex: 1;
+    flex-basis: 25rem;
+
+    > p {
+      margin-top: 1rem;
+      max-width: 37.5rem;
+    }
+  }
+
+  div:nth-of-type(2) {
+    > img {
+      max-width: 100%;
+    }
+  }
 `;
