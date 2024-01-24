@@ -53,9 +53,6 @@ export const Footer = () => {
             </S.Icon>
           </div>
         </S.IconsContainer>
-        <p>
-          Copyright &copy; 2024 AlfabetizAi LTDA. Todos os direitos reservados.
-        </p>
 
         <S.Newsletter>
           <p>Nos acompanhe</p>
@@ -67,6 +64,9 @@ export const Footer = () => {
           </form>
         </S.Newsletter>
       </div>
+      <S.Copyright>
+        Copyright &copy; 2024 AlfabetizAi LTDA. Todos os direitos reservados.
+      </S.Copyright>
     </S.Container>
   );
 };
