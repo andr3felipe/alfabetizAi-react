@@ -14,7 +14,7 @@ import * as S from './styles';
 import NavButton from '../../../components/NavButton';
 import kidReading from '../../../assets/kid-reading.png';
 import womanPhone from '../../../assets/woman-phone.png';
-import kidsStudying from '../../../assets/kids_studying.svg';
+import kidsStudying from '../../../assets/kids_studying.png';
 
 export const Home = () => {
   const iconsSize = {
@@ -31,7 +31,7 @@ export const Home = () => {
               Transforme seu futuro com educação de qualidade. Inscreva-se!
             </S.Paragraph>
             <NavButton
-              backgroundColor="blue-light"
+              backgroundcolor="purple-light"
               color="white"
               to="/cadastro"
             >
@@ -52,7 +52,7 @@ export const Home = () => {
           <S.CommitmentContainer>
             <img src={kidsStudying} alt="Crianças felizes estudando juntas" />
             <S.InfoContainer>
-              <S.Heading color="yellow">Nosso Compromisso</S.Heading>
+              <S.Heading color="red-dark">Nosso Compromisso</S.Heading>
               <S.Paragraph>
                 Nossos cursos online inovadores fazem parte de um sistema seguro
                 e simples de ser utilizado, para facilitar seu uso e otimizar
@@ -63,7 +63,7 @@ export const Home = () => {
                 educacional global. Juntos, estamos construindo um caminho
                 sólido para a realização do ODS 4.6.
               </S.Paragraph>
-              <NavButton backgroundColor="red-dark" to={'/cadastro'}>
+              <NavButton backgroundcolor="red-dark" to={'/cadastro'}>
                 Saiba mais
               </NavButton>
             </S.InfoContainer>
@@ -71,7 +71,7 @@ export const Home = () => {
 
           <S.DataContainer>
             <S.DataTitle>
-              <S.Heading color="yellow">
+              <S.Heading color="red-dark">
                 <span>Ajude esta causa</span> faça um mundo melhor
               </S.Heading>
               <S.Paragraph>
@@ -88,7 +88,7 @@ export const Home = () => {
                 </div>
               </S.Data>
 
-              <S.Data color="yellow">
+              <S.Data color="red-dark">
                 <SupervisedUserCircle style={{ ...iconsSize }} />
                 <div>
                   <S.Quantity>+50</S.Quantity>
@@ -104,7 +104,7 @@ export const Home = () => {
                 </div>
               </S.Data>
 
-              <S.Data color="yellow">
+              <S.Data color="red-dark">
                 <LibraryBooks style={iconsSize} />
                 <div>
                   <S.Quantity>+200</S.Quantity>
@@ -119,7 +119,7 @@ export const Home = () => {
       <S.FacilityAndSecurity>
         <S.SectionContainer>
           <div>
-            <S.Heading color="blue-light">Facilidade e segurança</S.Heading>
+            <S.Heading color="green">Facilidade e segurança</S.Heading>
             <S.Paragraph>
               Descubra como tornamos a alfabetização digital uma jornada simples
               e segura para todos. Nossa plataforma foi projetada com o usuário
@@ -145,7 +145,7 @@ export const Home = () => {
         <S.SectionContainer>
           <S.Heading color="red-dark">Vantagens e Benefícios</S.Heading>
           <S.CardsContainer>
-            <S.Card color="orange">
+            <S.Card color="green">
               <Lock style={iconsSize} />
               <h3>Segurança</h3>
               <S.Paragraph>
@@ -172,7 +172,7 @@ export const Home = () => {
               </S.Paragraph>
             </S.Card>
 
-            <S.Card color="orange">
+            <S.Card color="green">
               <CastForEducation style={iconsSize} />
               <h3>Acompanhamento</h3>
               <S.Paragraph>
@@ -204,11 +204,11 @@ export const Home = () => {
 
       <S.AdvanceTowardsYourGrowth>
         <S.SectionContainer>
-          <S.Heading color="yellow">
+          <S.Heading color="purple-light">
             Avance em direção ao seu crescimento!
           </S.Heading>
 
-          <NavButton to="cadastro" backgroundColor="red-dark">
+          <NavButton to="cadastro" backgroundcolor="purple-light">
             Cadastre-se
           </NavButton>
         </S.SectionContainer>
