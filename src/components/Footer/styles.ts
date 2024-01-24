@@ -8,15 +8,17 @@ type IconProps = {
 export const Container = styled.footer`
   background-color: ${({ theme }) => theme["blue-light"]};
   color: ${({ theme }) => theme.white};
+  text-align: center;
+  padding: 3rem 20px 2rem;
 
   > div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row wrap;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 3rem 20px;
+
     gap: 2rem;
   }
 `;
@@ -85,4 +87,8 @@ export const Newsletter = styled.div`
       font-size: 1rem;
     }
   }
+`;
+
+export const Copyright = styled.p`
+  margin-top: 2rem;
 `;
