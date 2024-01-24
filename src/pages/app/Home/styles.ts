@@ -80,6 +80,7 @@ export const OurCommitment = styled.section`
 export const CommitmentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 2rem 4rem;
   margin-bottom: 4rem;
 
@@ -96,6 +97,7 @@ export const CommitmentContainer = styled.div`
 export const InfoContainer = styled.div`
   flex: 1;
   flex-basis: 25rem;
+
   p {
     margin-bottom: 2rem;
   }
@@ -114,6 +116,7 @@ export const DataTitle = styled.div`
   flex-basis: 25rem;
 
   span {
+    display: block;
     color: ${(props) => props.theme['purple-light']};
   }
 `;
@@ -233,7 +236,11 @@ export const AdvanceTowardsYourGrowth = styled.section`
     gap: 2rem;
 
     > h2 {
-      font-size: 2.5rem;
+      font-size: 4rem;
+
+      @media (max-width: 767px) {
+        font-size: 2.5rem;
+      }
     }
   }
 `;
