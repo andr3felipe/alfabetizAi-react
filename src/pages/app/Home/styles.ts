@@ -1,20 +1,21 @@
-import styled from 'styled-components';
-import { Button } from '../../../components/NavButton/styles';
+import styled from "styled-components";
+import { Button } from "../../../components/NavButton/styles";
+import { colors } from "../../../@types/colors";
 
 type Heading = {
-  color: 'yellow' | 'blue-light' | 'red-dark' | 'orange' | 'blue-dark';
+  color: keyof colors;
 };
 
 type Paragraph = {
-  color?: 'yellow' | 'blue-light' | 'red-dark' | 'orange' | 'blue-dark';
+  color?: keyof colors;
 };
 
 type DataProps = {
-  color: 'purple-light' | 'yellow';
+  color: keyof colors;
 };
 
 type CardProps = {
-  color: 'orange' | 'red-dark' | 'purple-light';
+  color: keyof colors;
 };
 
 export const Container = styled.main``;
@@ -35,7 +36,7 @@ export const Heading = styled.h2<Heading>`
 `;
 
 export const Paragraph = styled.p<Paragraph>`
-  color: ${(props) => props.theme[props.color || 'blue-dark']};
+  color: ${(props) => props.theme[props.color || "blue-dark"]};
   font-weight: 500;
 `;
 
@@ -51,7 +52,7 @@ export const Hero = styled.section`
     flex-basis: 25rem;
 
     > h1 {
-      color: ${(props) => props.theme['yellow']};
+      color: ${(props) => props.theme["yellow"]};
       font-size: 2.25rem;
     }
 
@@ -73,8 +74,7 @@ export const Hero = styled.section`
 `;
 
 export const OurCommitment = styled.section`
-  background-color: ${(props) => props.theme['blue-light']};
-  padding: 2.5rem 0;
+  background-color: ${(props) => props.theme["blue-light"]};
 `;
 
 export const CommitmentContainer = styled.div`
@@ -114,7 +114,7 @@ export const DataTitle = styled.div`
   flex-basis: 25rem;
 
   span {
-    color: ${(props) => props.theme['purple-light']};
+    color: ${(props) => props.theme["purple-light"]};
   }
 `;
 
@@ -183,8 +183,7 @@ export const FacilityAndSecurity = styled.section`
 export const AdvantagesAndBenefits = styled.section`
   margin: 0 auto;
   text-align: center;
-  background-color: ${(props) => props.theme['blue-light']};
-  padding: 4rem 0;
+  background-color: ${(props) => props.theme["blue-light"]};
 
   h2 {
     margin-bottom: 2.5rem;
@@ -222,6 +221,9 @@ export const Card = styled.div<CardProps>`
 `;
 
 export const AdvanceTowardsYourGrowth = styled.section`
+  padding: 4rem 0;
+  text-align: center;
+
   > div {
     display: flex;
     align-items: center;
