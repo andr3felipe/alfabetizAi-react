@@ -15,7 +15,7 @@ const HeaderMobile = ({ children, toggleMenu, open }: HeaderMobileProps) => {
       <Button onClick={toggleMenu}>
         <MenuIcon sx={{ color: "#fff" }} fontSize="large" />
       </Button>
-      <Drawer anchor={"right"} open={open}>
+      <Drawer anchor={"right"} open={open} onClose={toggleMenu}>
         {children}
       </Drawer>
     </Menu>

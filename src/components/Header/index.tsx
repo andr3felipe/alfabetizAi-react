@@ -1,8 +1,8 @@
-import * as S from "./styles";
-import logotipo from "../../assets/logotipo.svg";
-import NavButton from "../NavButton";
-import HeaderMobile from "../HeaderMobile";
-import { useState } from "react";
+import * as S from './styles';
+import logotipo from '../../assets/logotipo.svg';
+import NavButton from '../NavButton';
+import HeaderMobile from '../HeaderMobile';
+import { useState } from 'react';
 
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -29,32 +29,60 @@ export const Header = () => {
         <S.Navigation>
           <ul>
             <li>
-              <NavButton to="/login">Login</NavButton>
+              <NavButton backgroundColor="white" color="blue-light" to="/login">
+                Login
+              </NavButton>
             </li>
             <li>
-              <NavButton to="/cadastro">Cadastre-se</NavButton>
+              <NavButton
+                backgroundColor="white"
+                color="blue-light"
+                to="/cadastro"
+              >
+                Cadastre-se
+              </NavButton>
             </li>
           </ul>
         </S.Navigation>
         <HeaderMobile toggleMenu={toggleMenu} open={open}>
           <S.MobileNavigation>
             <li>
-              <NavButton to="/" onClick={() => setOpen(false)}>
+              <NavButton
+                backgroundColor="white"
+                color="blue-light"
+                to="/"
+                onClick={() => setOpen(false)}
+              >
                 Início
               </NavButton>
             </li>
             <li>
-              <NavButton to="/saladeaula" onClick={() => setOpen(false)}>
+              <NavButton
+                backgroundColor="white"
+                color="blue-light"
+                to="/saladeaula"
+                onClick={() => setOpen(false)}
+              >
                 Sala de Aula
               </NavButton>
             </li>
             <li>
-              <NavButton to="/login" onClick={() => setOpen(false)}>
+              <NavButton
+                backgroundColor="white"
+                color="blue-light"
+                to="/login"
+                onClick={() => setOpen(false)}
+              >
                 Login
               </NavButton>
             </li>
             <li>
-              <NavButton to="/cadastro" onClick={() => setOpen(false)}>
+              <NavButton
+                backgroundColor="white"
+                color="blue-light"
+                to="/cadastro"
+                onClick={() => setOpen(false)}
+              >
                 Cadastre-se
               </NavButton>
             </li>

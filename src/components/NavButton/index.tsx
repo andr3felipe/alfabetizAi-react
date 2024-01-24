@@ -1,18 +1,18 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import { Button } from "./styles";
+import { NavLink } from "react-router-dom";
+import { colors } from "../../@types/colors";
 
-interface NavButtonProps {
+export interface NavButtonProps extends ComponentProps<typeof NavLink> {
   children: React.ReactNode;
   to: string;
   onClick?: () => void;
+  color?: keyof colors;
+  backgroundColor: keyof colors;
 }
 
-const NavButton = ({ to, onClick, children }: NavButtonProps) => {
-  return (
-    <Button to={to} onClick={onClick}>
-      {children}
-    </Button>
-  );
+const NavButton = ({ children, ...rest }: NavButtonProps) => {
+  return <Button {...rest}>{children}</Button>;
 };
 
 export default NavButton;
