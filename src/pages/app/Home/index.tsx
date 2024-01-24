@@ -3,6 +3,11 @@ import {
   SupervisedUserCircle,
   SmartDisplay,
   LibraryBooks,
+  Lock,
+  Public,
+  CastForEducation,
+  Diversity1,
+  AccessTime,
 } from '@mui/icons-material';
 
 import * as S from './styles';
@@ -135,6 +140,67 @@ export const Home = () => {
           </div>
         </S.SectionContainer>
       </S.FacilityAndSecurity>
+
+      <S.AdvantagesAndBenefits>
+        <S.SectionContainer>
+          <S.Heading color="red-dark">Vantagens e Benefícios</S.Heading>
+          <S.CardsContainer>
+            <S.Card color="orange">
+              <Lock style={iconsSize} />
+              <h3>Segurança</h3>
+              <S.Paragraph>
+                Seus dados estão resguardados conosco, seguindo rigorosos
+                padrões e medidas de proteção.
+              </S.Paragraph>
+            </S.Card>
+
+            <S.Card color="red-dark">
+              <Public style={iconsSize} />
+              <h3>Acessibilidade</h3>
+              <S.Paragraph>
+                Explore o universo da AlfabetizAi, independentemente da
+                localização geográfica.
+              </S.Paragraph>
+            </S.Card>
+
+            <S.Card color="purple-light">
+              <SmartDisplay style={iconsSize} />
+              <h3>Vídeos de Qualidade</h3>
+              <S.Paragraph>
+                Oferecemos conteúdo de qualidade, tornando sua jornada ainda
+                mais significativa.
+              </S.Paragraph>
+            </S.Card>
+
+            <S.Card color="orange">
+              <CastForEducation style={iconsSize} />
+              <h3>Acompanhamento</h3>
+              <S.Paragraph>
+                Profissionais competentes de olho na sua trajetória, desde o
+                início até a conquista.
+              </S.Paragraph>
+            </S.Card>
+
+            <S.Card color="red-dark">
+              <Diversity1 style={iconsSize} />
+              <h3>Comunidade</h3>
+              <S.Paragraph>
+                Temos uma comunidade engajada e disposta a ajudar, compartilhar
+                e colaborar.
+              </S.Paragraph>
+            </S.Card>
+
+            <S.Card color="purple-light">
+              <AccessTime style={iconsSize} />
+              <h3>Flexibilidade</h3>
+              <S.Paragraph>
+                Faça no seu ritmo de aprendizado personalizando conforme suas
+                necessidades e conveniência.
+              </S.Paragraph>
+            </S.Card>
+          </S.CardsContainer>
+        </S.SectionContainer>
+      </S.AdvantagesAndBenefits>
 
       <S.SectionContainer>
         <S.AdvanceTowardsYourGrowth>

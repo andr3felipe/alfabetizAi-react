@@ -13,6 +13,10 @@ type DataProps = {
   color: 'purple-light' | 'yellow';
 };
 
+type CardProps = {
+  color: 'orange' | 'red-dark' | 'purple-light';
+};
+
 export const Container = styled.main``;
 
 export const SectionContainer = styled.div`
@@ -173,6 +177,47 @@ export const FacilityAndSecurity = styled.section`
     > img {
       max-width: 100%;
     }
+  }
+`;
+
+export const AdvantagesAndBenefits = styled.section`
+  margin: 0 auto;
+  text-align: center;
+  background-color: ${(props) => props.theme['blue-light']};
+  padding: 4rem 0;
+
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+`;
+
+export const CardsContainer = styled.div`
+  margin: 0 auto;
+  border-radius: 48px;
+  padding: 5rem;
+  background-color: ${(props) => props.theme.white};
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 220px);
+  gap: 5rem 2.5rem;
+  max-width: 900px;
+  box-shadow: 12px 12px 20px 0 rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 900px) {
+    padding: 4rem 2rem;
+  }
+`;
+
+export const Card = styled.div<CardProps>`
+  color: ${(props) => props.theme[props.color]};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
   }
 `;
 
