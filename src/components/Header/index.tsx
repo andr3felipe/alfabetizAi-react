@@ -29,13 +29,17 @@ export const Header = () => {
         <S.Navigation>
           <ul>
             <li>
-              <NavButton backgroundColor="white" color="blue-light" to="/login">
+              <NavButton
+                backgroundcolor="purple-light"
+                color="blue-light"
+                to="/login"
+              >
                 Login
               </NavButton>
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
+                backgroundcolor="red-dark"
                 color="blue-light"
                 to="/cadastro"
               >
@@ -48,8 +52,8 @@ export const Header = () => {
           <S.MobileNavigation>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/"
                 onClick={() => setOpen(false)}
               >
@@ -58,8 +62,8 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/saladeaula"
                 onClick={() => setOpen(false)}
               >
@@ -68,7 +72,7 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
+                backgroundcolor="white"
                 color="blue-light"
                 to="/login"
                 onClick={() => setOpen(false)}
@@ -78,7 +82,7 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
+                backgroundcolor="white"
                 color="blue-light"
                 to="/cadastro"
                 onClick={() => setOpen(false)}

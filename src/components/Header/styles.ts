@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-  background-color: ${(props) => props.theme["blue-light"]};
+  background-color: ${(props) => props.theme['blue-light']};
 `;
 
 export const Container = styled.div`
@@ -37,7 +37,7 @@ export const Link = styled(NavLink)`
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 700;
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme['red-dark']};
 `;
 
 export const MobileNavigation = styled.ul`
