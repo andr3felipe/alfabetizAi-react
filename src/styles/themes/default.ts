@@ -1,5 +1,5 @@
 export const defaultTheme = {
-  "purple-light": "#A367B1",
+  "purple-light": "#5D3587",
   "purple-dark": "#392467",
   "blue-light": "#4DA6DD",
   "blue-dark": "#181E2A",

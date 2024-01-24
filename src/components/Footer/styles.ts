@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { colors } from "../../@types/colors";
 
 type IconProps = {
-  backgroundColor: "yellow" | "red-dark" | "orange" | "purple-dark";
+  backgroundColor: keyof colors;
 };
 
 export const Container = styled.footer`
