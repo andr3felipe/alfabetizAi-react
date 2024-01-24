@@ -1,11 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Button } from '../../../components/NavButton/styles';
 
 type Heading = {
-  color: "yellow" | "blue-light" | "red-dark" | "orange" | "blue-dark";
+  color: 'yellow' | 'blue-light' | 'red-dark' | 'orange' | 'blue-dark';
 };
 
 type Paragraph = {
-  color?: "yellow" | "blue-light" | "red-dark" | "orange" | "blue-dark";
+  color?: 'yellow' | 'blue-light' | 'red-dark' | 'orange' | 'blue-dark';
+};
+
+type DataProps = {
+  color: 'purple-light' | 'yellow';
 };
 
 export const Container = styled.main``;
@@ -26,7 +31,7 @@ export const Heading = styled.h2<Heading>`
 `;
 
 export const Paragraph = styled.p<Paragraph>`
-  color: ${(props) => props.theme[props.color || "blue-dark"]};
+  color: ${(props) => props.theme[props.color || 'blue-dark']};
   font-weight: 500;
 `;
 
@@ -42,7 +47,7 @@ export const Hero = styled.section`
     flex-basis: 25rem;
 
     > h1 {
-      color: ${(props) => props.theme["yellow"]};
+      color: ${(props) => props.theme['yellow']};
       font-size: 2.25rem;
     }
 
@@ -61,6 +66,86 @@ export const Hero = styled.section`
       max-width: 100%;
     }
   }
+`;
+
+export const OurCommitment = styled.section`
+  background-color: ${(props) => props.theme['blue-light']};
+  padding: 2.5rem 0;
+`;
+
+export const CommitmentContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  margin-bottom: 4rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    margin: 0 auto;
+    width: min(100%, 400px);
+  }
+`;
+
+export const InfoContainer = styled.div`
+  flex: 1;
+  flex-basis: 25rem;
+  p {
+    margin-bottom: 2rem;
+  }
+
+  ${Button} {
+    display: inline-block;
+  }
+`;
+
+export const DataContainer = styled(CommitmentContainer)`
+  gap: 4rem;
+`;
+
+export const DataTitle = styled.div`
+  flex: 1;
+  flex-basis: 25rem;
+
+  span {
+    color: ${(props) => props.theme['purple-light']};
+  }
+`;
+
+export const DataInfo = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 auto;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const Data = styled.div<DataProps>`
+  display: flex;
+  gap: 1rem;
+  color: ${(props) => props.theme[props.color]};
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const Quantity = styled.span`
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+`;
+
+export const Name = styled.span`
+  font-size: 1rem;
+  line-height: 1.5rem;
 `;
 
 export const FacilityAndSecurity = styled.section`
