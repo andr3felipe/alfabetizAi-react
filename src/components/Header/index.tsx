@@ -1,8 +1,8 @@
-import * as S from "./styles";
-import logotipo from "../../assets/logotipo.svg";
-import NavButton from "../NavButton";
-import HeaderMobile from "../HeaderMobile";
-import { useState } from "react";
+import * as S from './styles';
+import logotipo from '../../assets/logotipo.svg';
+import NavButton from '../NavButton';
+import HeaderMobile from '../HeaderMobile';
+import { useState } from 'react';
 
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -35,8 +35,8 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="red-dark"
-                color="white"
+                backgroundColor="white"
+                color="blue-light"
                 to="/cadastro"
               >
                 Cadastre-se
