@@ -25,7 +25,7 @@ export const SectionContainer = styled.div`
   padding: 4rem 8rem;
 
   @media (max-width: 768px) {
-    padding: 1rem 2rem;
+    padding: 3rem 2rem;
   }
 `;
 
@@ -222,14 +222,15 @@ export const Card = styled.div<CardProps>`
 `;
 
 export const AdvanceTowardsYourGrowth = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column wrap;
-  gap: 2rem;
-  text-align: center;
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    gap: 2rem;
 
-  > h2 {
-    font-size: 3.5rem;
+    > h2 {
+      font-size: 2.5rem;
+    }
   }
 `;
