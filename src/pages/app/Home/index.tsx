@@ -136,8 +136,8 @@ export const Home = () => {
         </S.SectionContainer>
       </S.FacilityAndSecurity>
 
-      <S.SectionContainer>
-        <S.AdvanceTowardsYourGrowth>
+      <S.AdvanceTowardsYourGrowth>
+        <S.SectionContainer>
           <S.Heading color="yellow">
             Avance em direção ao seu crescimento!
           </S.Heading>
@@ -145,8 +145,8 @@ export const Home = () => {
           <NavButton to="cadastro" backgroundColor="red-dark">
             Cadastre-se
           </NavButton>
-        </S.AdvanceTowardsYourGrowth>
-      </S.SectionContainer>
+        </S.SectionContainer>
+      </S.AdvanceTowardsYourGrowth>
     </S.Container>
   );
 };
