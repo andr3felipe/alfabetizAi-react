@@ -41,6 +41,8 @@ export const Home = () => {
           </div>
           <div>
             <img
+              width={445}
+              height={485}
               src={kidReading}
               srcSet={`${kidReadingMobile} 700w, ${kidReading} 800w`}
               sizes="(max-width: 710px) 400w, 800w"
@@ -54,6 +56,8 @@ export const Home = () => {
         <S.SectionContainer>
           <S.CommitmentContainer>
             <img
+              width={400}
+              height={400}
               src={kidsStudyingResized}
               alt="Crianças felizes estudando juntas"
             />
@@ -140,6 +144,8 @@ export const Home = () => {
           </div>
           <div>
             <img
+              width={442}
+              height={435}
               src={womanPhone}
               alt="Mulher de cabelos pretos, blusa azul e calça preta, mexendo em um telefone smarthphone gigante."
             />
