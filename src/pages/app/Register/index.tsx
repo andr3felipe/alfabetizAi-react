@@ -5,14 +5,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import {
+  Alert,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
+  Snackbar,
 } from "@mui/material";
 import { useState } from "react";
 import { Button } from "../../../components/Button";
+import axios from "axios";
 
 const schema = yup
   .object({
@@ -21,7 +24,7 @@ const schema = yup
       .min(3, "Nome muito curto.")
       .max(80, "Nome muito longo.")
       .required("O nome é obrigatório."),
-    surname: yup
+    surName: yup
       .string()
       .min(3, "Sobrenome muito curto.")
       .max(80, "Sobrenome muito longo.")
@@ -65,21 +68,103 @@ const schema = yup
   })
   .required();
 
-type User = yup.InferType<typeof schema>;
+export type User = yup.InferType<typeof schema>;
+
+type SnackBarMessage = {
+  variant: "success" | "error";
+  message: string;
+};
 
 export const Register = () => {
   const [gender, setGender] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState<SnackBarMessage>({
+    variant: "error",
+    message: "",
+  });
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<User>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: User) => {
-    console.log(data);
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
+  };
+
+  const onSubmit = async (data: User) => {
+    const { firstName, surName, email, cpf, cel, birthDate, gender, password } =
+      data;
+
+    try {
+      const users = await axios
+        .get("http://localhost:3000/usuarios")
+        .then((response) => response.data);
+
+      const emailAlreadyExists = users.find(
+        (user: Omit<User, "confirmPassword">) =>
+          user.email.toLowerCase() === email.toLowerCase()
+      );
+
+      const cpfAlreadyExists = users.find(
+        (user: Omit<User, "confirmPassword">) => user.cpf === cpf
+      );
+
+      if (emailAlreadyExists) {
+        setSnackbarMessage({
+          variant: "error",
+          message: "Email já cadastrado!",
+        });
+        setOpenSnackbar(true);
+        return;
+      }
+
+      if (cpfAlreadyExists) {
+        setSnackbarMessage({
+          variant: "error",
+          message: "CPF já cadastrado!",
+        });
+        setOpenSnackbar(true);
+        return;
+      }
+
+      await axios
+        .post("http://localhost:3000/usuarios", {
+          firstName,
+          surName,
+          email,
+          cpf,
+          cel,
+          birthDate,
+          gender,
+          password,
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            setSnackbarMessage({
+              variant: "success",
+              message: "Cadastro concluido!",
+            });
+            setOpenSnackbar(true);
+            reset();
+            return;
+          } else {
+            setSnackbarMessage({
+              variant: "error",
+              message: "Erro ao se conectar com o servidor.",
+            });
+            setOpenSnackbar(true);
+            return;
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      window.alert(error);
+    }
   };
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -110,14 +195,14 @@ export const Register = () => {
 
         <S.InputContainer>
           <S.Input
-            id="surname"
+            id="surName"
             label="Sobrenome*"
             type="text"
-            {...register("surname")}
+            {...register("surName")}
           />
 
           <S.ErrorsContainer>
-            <S.Errors>{errors.surname?.message}</S.Errors>
+            <S.Errors>{errors.surName?.message}</S.Errors>
           </S.ErrorsContainer>
         </S.InputContainer>
 
@@ -212,10 +297,26 @@ export const Register = () => {
           </S.ErrorsContainer>
         </S.InputContainer>
 
-        <Button backgroundcolor="green" color="white">
+        <Button backgroundcolor="red-dark" color="white">
           Confirmar
         </Button>
       </S.Form>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbarMessage.variant}
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {snackbarMessage.message}
+        </Alert>
+      </Snackbar>
     </S.Container>
   );
 };

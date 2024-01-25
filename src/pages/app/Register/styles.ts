@@ -13,6 +13,8 @@ export const Container = styled.main`
   justify-content: center;
   flex-flow: column;
   gap: 1rem;
+
+  background-color: ${({ theme }) => theme["purple-dark"]};
 `;
 
 export const Intro = styled.div`
@@ -25,17 +27,21 @@ export const Intro = styled.div`
 
 export const Form = styled.form`
   margin-top: 2rem;
-  border: 1px solid ${({ theme }) => theme["blue-dark"]};
   padding: 4rem;
   border-radius: 8px;
   max-width: 600px;
   width: 100%;
+  background-color: ${({ theme }) => theme.white};
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `;
 
 export const InputContainer = styled.div`
