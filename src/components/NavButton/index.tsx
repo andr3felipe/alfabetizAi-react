@@ -1,7 +1,7 @@
-import React, { ComponentProps } from 'react';
-import { Button } from './styles';
-import { NavLink } from 'react-router-dom';
-import { colors } from '../../@types/colors';
+import React, { ComponentProps } from "react";
+import { Button } from "./styles";
+import { NavLink } from "react-router-dom";
+import { colors } from "../../@types/colors";
 
 export interface NavButtonProps extends ComponentProps<typeof NavLink> {
   children: React.ReactNode;
