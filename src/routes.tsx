@@ -12,19 +12,19 @@ export const router = createBrowserRouter([
     element: <DefaultLayout />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
-        path: "/saladeaula",
+        path: "saladeaula",
         element: <Classroom />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/cadastro",
+        path: "cadastro",
         element: <Register />,
       },
     ],

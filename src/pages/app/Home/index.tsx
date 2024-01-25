@@ -8,17 +8,17 @@ import {
   CastForEducation,
   Diversity1,
   AccessTime,
-} from '@mui/icons-material';
+} from "@mui/icons-material";
 
-import * as S from './styles';
-import NavButton from '../../../components/NavButton';
-import kidReading from '../../../assets/kid-reading.png';
-import womanPhone from '../../../assets/woman-phone.png';
-import kidsStudying from '../../../assets/kids_studying.png';
+import * as S from "./styles";
+import NavButton from "../../../components/NavButton";
+import kidReading from "../../../assets/kid-reading.webp";
+import womanPhone from "../../../assets/woman-phone.png";
+import kidsStudying from "../../../assets/kids_studying.png";
 
 export const Home = () => {
   const iconsSize = {
-    fontSize: '48px',
+    fontSize: "48px",
   };
 
   return (
@@ -52,12 +52,7 @@ export const Home = () => {
       <S.OurCommitment>
         <S.SectionContainer>
           <S.CommitmentContainer>
-            <img
-              width="320"
-              height="321"
-              src={kidsStudying}
-              alt="Crianças felizes estudando juntas"
-            />
+            <img src={kidsStudying} alt="Crianças felizes estudando juntas" />
             <S.InfoContainer>
               <S.Heading color="red-dark">Nosso Compromisso</S.Heading>
               <S.Paragraph>
@@ -70,7 +65,7 @@ export const Home = () => {
                 educacional global. Juntos, estamos construindo um caminho
                 sólido para a realização do ODS 4.6.
               </S.Paragraph>
-              <NavButton backgroundcolor="red-dark" to={'/cadastro'}>
+              <NavButton backgroundcolor="red-dark" to={"/cadastro"}>
                 Saiba mais
               </NavButton>
             </S.InfoContainer>
