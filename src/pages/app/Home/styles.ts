@@ -70,7 +70,7 @@ export const Hero = styled.section`
     position: relative;
 
     > img {
-      aspect-ratio: auto;
+      aspect-ratio: 445/485;
       width: 100%;
       max-width: 445px;
     }
@@ -95,7 +95,7 @@ export const CommitmentContainer = styled.div`
   img {
     margin: 0 auto;
     width: min(100%, 400px);
-    aspect-ratio: auto;
+    aspect-ratio: 400/401;
   }
 `;
 
@@ -185,7 +185,7 @@ export const FacilityAndSecurity = styled.section`
   div:nth-of-type(2) {
     > img {
       max-width: 100%;
-      aspect-ratio: auto;
+      aspect-ratio: 442/435;
     }
   }
 `;
