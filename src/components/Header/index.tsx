@@ -1,8 +1,8 @@
-import * as S from './styles';
-import logotipo from '../../assets/logotipo.svg';
-import NavButton from '../NavButton';
-import HeaderMobile from '../HeaderMobile';
-import { useState } from 'react';
+import * as S from "./styles";
+import logotipo from "../../assets/logotipo.svg";
+import NavButton from "../NavButton";
+import HeaderMobile from "../HeaderMobile";
+import { useState } from "react";
 
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -14,7 +14,9 @@ export const Header = () => {
   return (
     <S.Header>
       <S.Container>
-        <img src={logotipo} alt="Identidade visual da AlfabetizAi" />
+        <S.Link to={"/"} aria-label="Pagina inícial">
+          <img src={logotipo} alt="Identidade visual da AlfabetizAi" />
+        </S.Link>
         <S.Navigation>
           <ul>
             <li>

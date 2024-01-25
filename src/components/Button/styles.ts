@@ -1,10 +1,9 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { NavButtonProps } from ".";
+import { ButtonProps as Props } from ".";
 
-type ButtonProps = Pick<NavButtonProps, "color" | "backgroundcolor">;
+type ButtonProps = Pick<Props, "color" | "backgroundcolor">;
 
-export const Button = styled(NavLink)<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   display: block;
   background-color: ${(props) => props.theme[props["backgroundcolor"]]};
@@ -17,6 +16,7 @@ export const Button = styled(NavLink)<ButtonProps>`
   border-radius: 6px;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  border: none;
 
   &:hover {
     opacity: 0.9;
