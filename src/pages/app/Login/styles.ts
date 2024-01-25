@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import NavButton from '../../../components/NavButton';
-import { Button } from '../../../components/NavButton/styles';
-import { ComponentProps } from 'react';
-import { TextField } from '@mui/material';
+import styled from "styled-components";
+import NavButton from "../../../components/NavButton";
+import { Button } from "../../../components/NavButton/styles";
+import { ComponentProps } from "react";
+import { TextField } from "@mui/material";
 
 interface InputProps extends ComponentProps<typeof TextField> {}
 
 export const Main = styled.main`
-  background-color: ${(props) => props.theme['purple-light']};
+  background-color: ${(props) => props.theme["purple-light"]};
 `;
 
 export const Container = styled.main`
@@ -52,10 +52,10 @@ export const BackToHome = styled(NavButton)`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h1`
   font-size: 2.25rem;
   font-weight: 700;
-  color: ${(props) => props.theme['blue-dark']};
+  color: ${(props) => props.theme["blue-dark"]};
   margin-bottom: 0.75rem;
 
   @media (max-width: 1000px) {
@@ -64,7 +64,7 @@ export const Title = styled.h2`
 `;
 
 export const RegisterText = styled.span`
-  color: ${(props) => props.theme['blue-dark']};
+  color: ${(props) => props.theme["blue-dark"]};
   margin-bottom: 1.75rem;
 
   ${Button} {
@@ -94,7 +94,7 @@ export const SubmitButton = styled.button`
   border: none;
   border-radius: 6px;
   padding: 1.25rem 0;
-  background-color: ${(props) => props.theme['purple-light']};
+  background-color: ${(props) => props.theme["purple-light"]};
   color: ${(props) => props.theme.white};
   font-size: 1.25rem;
   font-weight: 700;
@@ -114,4 +114,12 @@ export const SubmitButton = styled.button`
     font-size: 1rem;
     margin-top: 0;
   }
+`;
+
+export const Errors = styled.p`
+  font-size: 0.75rem;
+  color: ${({ theme }) => theme["red-dark"]};
+  font-weight: bold;
+  min-height: 0.9375rem;
+  margin-top: 0.5rem;
 `;

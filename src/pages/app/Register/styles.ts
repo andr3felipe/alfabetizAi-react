@@ -40,7 +40,7 @@ export const Form = styled.form`
   gap: 2rem;
 
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 2rem;
   }
 `;
 
