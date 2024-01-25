@@ -73,7 +73,7 @@ export const Header = () => {
             <li>
               <NavButton
                 backgroundcolor="white"
-                color="blue-light"
+                color="purple-light"
                 to="/login"
                 onClick={() => setOpen(false)}
               >
@@ -83,7 +83,7 @@ export const Header = () => {
             <li>
               <NavButton
                 backgroundcolor="white"
-                color="blue-light"
+                color="purple-light"
                 to="/cadastro"
                 onClick={() => setOpen(false)}
               >
