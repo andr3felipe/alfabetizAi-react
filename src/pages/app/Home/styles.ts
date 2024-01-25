@@ -67,8 +67,12 @@ export const Hero = styled.section`
   }
 
   div:nth-of-type(2) {
+    position: relative;
+
     > img {
-      max-width: 100%;
+      aspect-ratio: auto;
+      width: 100%;
+      max-width: 445px;
     }
   }
 `;
@@ -181,6 +185,7 @@ export const FacilityAndSecurity = styled.section`
   div:nth-of-type(2) {
     > img {
       max-width: 100%;
+      aspect-ratio: auto;
     }
   }
 `;
