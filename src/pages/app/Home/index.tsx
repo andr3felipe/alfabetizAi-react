@@ -207,7 +207,6 @@ export const Home = () => {
           <S.Heading color="purple-light">
             Avance em direção ao seu crescimento!
           </S.Heading>
-
           <NavButton to="cadastro" backgroundcolor="purple-light">
             Cadastre-se
           </NavButton>
