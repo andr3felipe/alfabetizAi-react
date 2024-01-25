@@ -29,6 +29,10 @@ export const Login = styled.div`
   border-radius: 24px;
   max-width: 900px;
   text-align: center;
+
+  @media (max-width: 1000px) {
+    padding: 2rem;
+  }
 `;
 
 export const BackToHome = styled(NavButton)`
@@ -42,6 +46,10 @@ export const BackToHome = styled(NavButton)`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 475px) {
+    margin: 0 auto;
+  }
 `;
 
 export const Title = styled.h2`
@@ -49,6 +57,10 @@ export const Title = styled.h2`
   font-weight: 700;
   color: ${(props) => props.theme['blue-dark']};
   margin-bottom: 0.75rem;
+
+  @media (max-width: 1000px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const RegisterText = styled.span`
@@ -67,6 +79,10 @@ export const LoginForm = styled.form`
   flex-direction: column;
   gap: 1.5rem;
   padding: 0 5rem;
+
+  @media (max-width: 1000px) {
+    padding: 0;
+  }
 `;
 
 export const Input = styled(TextField)<InputProps>`
@@ -77,10 +93,10 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 6px;
-  padding: 20px 0;
+  padding: 1.25rem 0;
   background-color: ${(props) => props.theme['purple-light']};
   color: ${(props) => props.theme.white};
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -91,5 +107,11 @@ export const SubmitButton = styled.button`
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0;
   }
 `;
