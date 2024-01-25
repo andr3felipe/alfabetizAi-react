@@ -14,7 +14,6 @@ import * as S from "./styles";
 import NavButton from "../../../components/NavButton";
 import kidReading from "../../../assets/kid-reading.webp";
 import womanPhone from "../../../assets/woman-phone.png";
-import kidsStudying from "../../../assets/kids_studying.png";
 import kidsStudyingResized from "../../../assets/kids_studying-resized.png";
 import kidReadingMobile from "../../../assets/kid-reading-mobile.webp";
 
