@@ -17,7 +17,7 @@ export const Footer = () => {
     <S.Container>
       <div>
         <S.IconsContainer>
-          <img src={logotipo} alt="AlfabetizAi" />
+          <img width="227" height="49" src={logotipo} alt="AlfabetizAi" />
           <div>
             <S.Icon
               backgroundcolor="purple-light"
