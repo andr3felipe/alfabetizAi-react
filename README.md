@@ -15,11 +15,12 @@
 
 - [1. Prefácio](#1-prefácio)
 - [2. Orientações para a Tarefa](#2-orientações-para-a-tarefa)
-- [3- Metodologia](#3-metodologia)
-- [4- Detalhamento](#4-detalhamento)
-- [5- Instruções para acessar o projeto](#5-instruções-para-acessar-o-projeto)
-- [6. Tecnologias utilizadas](#🖥️-6-tecnologias-utilizadas)
-- [7. Desenvolvedores](#7-desenvolvedores)
+- [3. Metodologia](#3-metodologia)
+- [4. Detalhamento](#4-detalhamento)
+- [5. Instruções para acessar o projeto](#5-instruções-para-acessar-o-projeto)
+- [6. Tecnologias utilizadas](#6-tecnologias-utilizadas)
+- [7. Performance e Melhoria da Landing Page](#7-performance-e-melhoria-da-landing-page)
+- [8. Desenvolvedores](#8-desenvolvedores)
 
 ---
 
@@ -99,7 +100,7 @@ npm run dev
 
 ---
 
-## 🖥️ 6. Tecnologias utilizadas
+## 6. Tecnologias utilizadas
 
 <div>
 <br>
@@ -117,7 +118,21 @@ npm run dev
 
 ---
 
-### 7. Desenvolvedores
+## 7. Performance e Melhoria da Landing Page
+
+### 7.1 Otimizações Realizadas
+
+- **Converção de Imagem:** Uma das imagens foi convertida para webp para otimizar a peformance.
+
+- **Aspect Ratio:** Foi necessário utilizar o aspect ratio nos estilos da imagem para manter a proporção original.
+
+### 7.2 Resultados no Lighthouse
+
+<img title="Resultados do Lighthouse" alt="Resultados do Lighthouse" src="./src/assets/lp_lighthouse.webp">
+
+---
+
+### 8. Desenvolvedores
 
 #### Davis Sampaio <br>
 
