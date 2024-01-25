@@ -1,8 +1,8 @@
-import * as S from './styles';
-import logotipo from '../../assets/logotipo.svg';
-import NavButton from '../NavButton';
-import HeaderMobile from '../HeaderMobile';
-import { useState } from 'react';
+import * as S from "./styles";
+import logotipo from "../../assets/logotipo.svg";
+import NavButton from "../NavButton";
+import HeaderMobile from "../HeaderMobile";
+import { useState } from "react";
 
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -14,7 +14,9 @@ export const Header = () => {
   return (
     <S.Header>
       <S.Container>
-        <img src={logotipo} alt="Identidade visual da AlfabetizAi" />
+        <S.Link to={"/"} aria-label="Pagina inícial">
+          <img src={logotipo} alt="Identidade visual da AlfabetizAi" />
+        </S.Link>
         <S.Navigation>
           <ul>
             <li>
@@ -29,13 +31,17 @@ export const Header = () => {
         <S.Navigation>
           <ul>
             <li>
-              <NavButton backgroundColor="white" color="blue-light" to="/login">
+              <NavButton
+                backgroundcolor="purple-light"
+                color="blue-light"
+                to="/login"
+              >
                 Login
               </NavButton>
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
+                backgroundcolor="red-dark"
                 color="blue-light"
                 to="/cadastro"
               >
@@ -48,8 +54,8 @@ export const Header = () => {
           <S.MobileNavigation>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/"
                 onClick={() => setOpen(false)}
               >
@@ -58,8 +64,8 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/saladeaula"
                 onClick={() => setOpen(false)}
               >
@@ -68,8 +74,8 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/login"
                 onClick={() => setOpen(false)}
               >
@@ -78,8 +84,8 @@ export const Header = () => {
             </li>
             <li>
               <NavButton
-                backgroundColor="white"
-                color="blue-light"
+                backgroundcolor="white"
+                color="purple-light"
                 to="/cadastro"
                 onClick={() => setOpen(false)}
               >

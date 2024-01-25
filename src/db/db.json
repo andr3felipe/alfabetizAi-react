@@ -1,0 +1,59 @@
+{
+  "usuarios": [
+    {
+      "id": "7b1f",
+      "firstName": "Andre Felipe de",
+      "surName": "Sousa",
+      "email": "andre.felipe_680@hotmail.com",
+      "cpf": "008.291.891-06",
+      "cel": "(19) 99999-9999",
+      "birthDate": "22/10/1996",
+      "gender": "Homem",
+      "password": "1234567"
+    },
+    {
+      "id": "1dc0",
+      "firstName": "Andre Felipe de",
+      "surName": "Sousa",
+      "email": "andre.felipe_360@hotmail.com",
+      "cpf": "008.291.891-06",
+      "cel": "(19) 99999-9999",
+      "birthDate": "22/10/1996",
+      "gender": "Homem",
+      "password": "123456"
+    },
+    {
+      "id": "9c6b",
+      "firstName": "Andre Felipe de",
+      "surName": "Sousa",
+      "email": "andre.felipe_30@hotmail.com",
+      "cpf": "008.291.891-06",
+      "cel": "(19) 99999-9999",
+      "birthDate": "22/10/1996",
+      "gender": "Homem",
+      "password": "123456"
+    },
+    {
+      "id": "d2f4",
+      "firstName": "Andre Felipe de",
+      "surName": "Sousa",
+      "email": "andre.felipe_680@hotmail.co",
+      "cpf": "008.291.891-06",
+      "cel": "(19) 99999-9999",
+      "birthDate": "22/10/1996",
+      "gender": "Homem",
+      "password": "123456"
+    },
+    {
+      "id": "39f5",
+      "firstName": "Andre Felipe de",
+      "surName": "Sousa",
+      "email": "123@hotmail.com",
+      "cpf": "008.291.891-01",
+      "cel": "(19) 99999-9999",
+      "birthDate": "22/10/1996",
+      "gender": "Mulher",
+      "password": "123123"
+    }
+  ]
+}

@@ -1,17 +1,17 @@
-import * as S from "./styles";
-import logotipo from "../../assets/logotipo.svg";
+import * as S from './styles';
+import logotipo from '../../assets/logotipo.svg';
 import {
   Instagram,
   Twitter,
   YouTube,
   Facebook,
   Send,
-} from "@mui/icons-material";
+} from '@mui/icons-material';
 
 export const Footer = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Você foi inscrito na newsletter!");
+    alert('Você foi inscrito na newsletter!');
   };
   return (
     <S.Container>
@@ -20,7 +20,7 @@ export const Footer = () => {
           <img src={logotipo} alt="AlfabetizAi" />
           <div>
             <S.Icon
-              backgroundColor="yellow"
+              backgroundcolor="purple-light"
               href="https://www.instagram.com.br"
               target="_blank"
               aria-label="Link para o nosso Instagram"
@@ -28,7 +28,7 @@ export const Footer = () => {
               <Instagram />
             </S.Icon>
             <S.Icon
-              backgroundColor="orange"
+              backgroundcolor="red-dark"
               href="https://www.twitter.com.br/"
               target="_blank"
               aria-label="Link para o nosso Twitter"
@@ -36,7 +36,7 @@ export const Footer = () => {
               <Twitter />
             </S.Icon>
             <S.Icon
-              backgroundColor="purple-dark"
+              backgroundcolor="purple-light"
               href="https://www.youtube.com.br/"
               target="_blank"
               aria-label="Link para o nosso YouTube"
@@ -44,7 +44,7 @@ export const Footer = () => {
               <YouTube />
             </S.Icon>
             <S.Icon
-              backgroundColor="red-dark"
+              backgroundcolor="red-dark"
               href="https://www.facebook.com.br/"
               target="_blank"
               aria-label="Link para o nosso Facebook"

@@ -8,7 +8,7 @@ export interface NavButtonProps extends ComponentProps<typeof NavLink> {
   to: string;
   onClick?: () => void;
   color?: keyof colors;
-  backgroundColor: keyof colors;
+  backgroundcolor: keyof colors;
 }
 
 const NavButton = ({ children, ...rest }: NavButtonProps) => {

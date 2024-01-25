@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Button } from "../../../components/NavButton/styles";
-import { colors } from "../../../@types/colors";
+import styled from 'styled-components';
+import { Button } from '../../../components/NavButton/styles';
+import { colors } from '../../../@types/colors';
 
 type Heading = {
   color: keyof colors;
@@ -36,7 +36,7 @@ export const Heading = styled.h2<Heading>`
 `;
 
 export const Paragraph = styled.p<Paragraph>`
-  color: ${(props) => props.theme[props.color || "blue-dark"]};
+  color: ${(props) => props.theme[props.color || 'blue-dark']};
   font-weight: 500;
 `;
 
@@ -52,7 +52,7 @@ export const Hero = styled.section`
     flex-basis: 25rem;
 
     > h1 {
-      color: ${(props) => props.theme["yellow"]};
+      color: ${(props) => props.theme['purple-light']};
       font-size: 2.25rem;
     }
 
@@ -74,12 +74,13 @@ export const Hero = styled.section`
 `;
 
 export const OurCommitment = styled.section`
-  background-color: ${(props) => props.theme["blue-light"]};
+  background-color: ${(props) => props.theme['blue-light']};
 `;
 
 export const CommitmentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 2rem 4rem;
   margin-bottom: 4rem;
 
@@ -96,6 +97,7 @@ export const CommitmentContainer = styled.div`
 export const InfoContainer = styled.div`
   flex: 1;
   flex-basis: 25rem;
+
   p {
     margin-bottom: 2rem;
   }
@@ -114,7 +116,8 @@ export const DataTitle = styled.div`
   flex-basis: 25rem;
 
   span {
-    color: ${(props) => props.theme["purple-light"]};
+    display: block;
+    color: ${(props) => props.theme['purple-light']};
   }
 `;
 
@@ -150,6 +153,7 @@ export const Quantity = styled.span`
 export const Name = styled.span`
   font-size: 1rem;
   line-height: 1.5rem;
+  font-weight: 600;
 `;
 
 export const FacilityAndSecurity = styled.section`
@@ -161,7 +165,7 @@ export const FacilityAndSecurity = styled.section`
     gap: 2rem;
   }
 
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.white};
 
   div:first-of-type {
     flex: 1;
@@ -183,7 +187,7 @@ export const FacilityAndSecurity = styled.section`
 export const AdvantagesAndBenefits = styled.section`
   margin: 0 auto;
   text-align: center;
-  background-color: ${(props) => props.theme["blue-light"]};
+  background-color: ${(props) => props.theme['blue-light']};
 
   h2 {
     margin-bottom: 2.5rem;
@@ -232,7 +236,11 @@ export const AdvanceTowardsYourGrowth = styled.section`
     gap: 2rem;
 
     > h2 {
-      font-size: 2.5rem;
+      font-size: 4rem;
+
+      @media (max-width: 767px) {
+        font-size: 2.5rem;
+      }
     }
   }
 `;
