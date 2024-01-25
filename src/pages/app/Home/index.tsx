@@ -40,6 +40,8 @@ export const Home = () => {
           </div>
           <div>
             <img
+              width="445"
+              height="485"
               src={kidReading}
               alt="Criança de cabelos loiros, boné vermelho e camisa verde, lendo livros."
             />
@@ -50,7 +52,12 @@ export const Home = () => {
       <S.OurCommitment>
         <S.SectionContainer>
           <S.CommitmentContainer>
-            <img src={kidsStudying} alt="Crianças felizes estudando juntas" />
+            <img
+              width="320"
+              height="321"
+              src={kidsStudying}
+              alt="Crianças felizes estudando juntas"
+            />
             <S.InfoContainer>
               <S.Heading color="red-dark">Nosso Compromisso</S.Heading>
               <S.Paragraph>
@@ -134,6 +141,8 @@ export const Home = () => {
           </div>
           <div>
             <img
+              width="442"
+              height="435"
               src={womanPhone}
               alt="Mulher de cabelos pretos, blusa azul e calça preta, mexendo em um telefone smarthphone gigante."
             />
