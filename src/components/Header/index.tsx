@@ -1,19 +1,55 @@
+import { useState } from 'react';
+import { Modal } from '@mui/material';
+
 import * as S from './styles';
 import logotipo from '../../assets/logotipo.svg';
+import kidsStudying from '../../assets/kids_studying.png';
+import WomanPhone from '../../assets/woman-phone.png';
 import NavButton from '../NavButton';
 import HeaderMobile from '../HeaderMobile';
-import { useState } from 'react';
 
 export const Header = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   function toggleMenu() {
-    setOpen((state) => !state);
+    setOpenMenu((state) => !state);
   }
 
   return (
     <S.Header>
       <S.Container>
+        <Modal
+          open={openModal}
+          onClose={handleCloseModal}
+          aria-labelledby="Escolha o tipo de acesso"
+        >
+          <S.ModalContainer>
+            <S.NavLoginContainer>
+              <S.CloseModalButton onClick={handleCloseModal}>
+                X
+              </S.CloseModalButton>
+              <S.NavLogin to="/login">
+                <img
+                  src={kidsStudying}
+                  alt="Crianças felizes estudando juntas"
+                />
+                <h5>Aluno</h5>
+              </S.NavLogin>
+
+              <S.NavLogin to="/login">
+                <img
+                  src={WomanPhone}
+                  alt="Mulher de cabelos pretos, blusa azul e calça preta, mexendo em um telefone smarthphone gigante."
+                />
+                <h5>Responsável ou Professor</h5>
+              </S.NavLogin>
+            </S.NavLoginContainer>
+          </S.ModalContainer>
+        </Modal>
+
         <S.Link to={'/'} aria-label="Pagina inícial">
           <img
             width="227"
@@ -36,13 +72,13 @@ export const Header = () => {
         <S.Navigation>
           <ul>
             <li>
-              <NavButton
+              <S.LoginButton
                 backgroundcolor="purple-light"
                 color="blue-light"
-                to="/login"
+                onClick={() => handleOpenModal()}
               >
                 Login
-              </NavButton>
+              </S.LoginButton>
             </li>
             <li>
               <NavButton
@@ -55,14 +91,14 @@ export const Header = () => {
             </li>
           </ul>
         </S.Navigation>
-        <HeaderMobile toggleMenu={toggleMenu} open={open}>
+        <HeaderMobile toggleMenu={toggleMenu} open={openMenu}>
           <S.MobileNavigation>
             <li>
               <NavButton
                 backgroundcolor="white"
                 color="purple-light"
                 to="/"
-                onClick={() => setOpen(false)}
+                onClick={() => setOpenMenu(false)}
               >
                 Início
               </NavButton>
@@ -72,27 +108,26 @@ export const Header = () => {
                 backgroundcolor="white"
                 color="purple-light"
                 to="/saladeaula"
-                onClick={() => setOpen(false)}
+                onClick={() => setOpenMenu(false)}
               >
                 Sala de Aula
               </NavButton>
             </li>
             <li>
-              <NavButton
+              <S.LoginButton
                 backgroundcolor="white"
                 color="purple-light"
-                to="/login"
-                onClick={() => setOpen(false)}
+                onClick={() => handleOpenModal()}
               >
                 Login
-              </NavButton>
+              </S.LoginButton>
             </li>
             <li>
               <NavButton
                 backgroundcolor="white"
                 color="purple-light"
                 to="/cadastro"
-                onClick={() => setOpen(false)}
+                onClick={() => setOpenMenu(false)}
               >
                 Cadastre-se
               </NavButton>
