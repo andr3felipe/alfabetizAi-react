@@ -58,16 +58,6 @@ export const Header = () => {
             alt="Identidade visual da AlfabetizAi"
           />
         </S.Link>
-        <S.Navigation>
-          <ul>
-            <li>
-              <S.Link to="/">Início</S.Link>
-            </li>
-            <li>
-              <S.Link to="/saladeaula">Sala de Aula</S.Link>
-            </li>
-          </ul>
-        </S.Navigation>
 
         <S.Navigation>
           <ul>
