@@ -38,6 +38,11 @@ export const Link = styled(NavLink)`
   line-height: 1.5;
   font-weight: 700;
   color: ${(props) => props.theme['red-dark']};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: ${(props) => props.theme['purple-light']};
+  }
 `;
 
 export const MobileNavigation = styled.ul`
