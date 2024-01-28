@@ -31,7 +31,13 @@ export const Header = () => {
               <S.CloseModalButton onClick={handleCloseModal}>
                 X
               </S.CloseModalButton>
-              <S.NavLogin to="/login">
+              <S.NavLogin
+                to="/login"
+                onClick={() => {
+                  handleCloseModal();
+                  localStorage.setItem('role', 'aluno');
+                }}
+              >
                 <img
                   src={kidsStudying}
                   alt="Crianças felizes estudando juntas"
@@ -39,7 +45,13 @@ export const Header = () => {
                 <h5>Aluno</h5>
               </S.NavLogin>
 
-              <S.NavLogin to="/login">
+              <S.NavLogin
+                to="/login"
+                onClick={() => {
+                  handleCloseModal();
+                  localStorage.setItem('role', 'admin');
+                }}
+              >
                 <img
                   src={WomanPhone}
                   alt="Mulher de cabelos pretos, blusa azul e calça preta, mexendo em um telefone smarthphone gigante."
