@@ -1,36 +1,52 @@
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { Home, Login as LoginIcon } from "@mui/icons-material";
-import { useState } from "react";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { Home, Login as LoginIcon } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 
-import * as S from "./styles";
-import { Alert, Snackbar } from "@mui/material";
-import { NavLink, useNavigate } from "react-router-dom";
-import { User } from "../Register";
+import * as S from './styles';
+import {
+  Alert,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Snackbar,
+} from '@mui/material';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { User } from '../Register';
 
 interface FormData {
   email: string;
   password: string;
+  role: string;
 }
 
 const loginSchema = yup.object().shape({
   email: yup
     .string()
-    .email("Digite um e-mail válido.")
-    .required("Campo obrigatório."),
+    .email('Digite um e-mail válido.')
+    .required('Campo obrigatório.'),
   password: yup
     .string()
-    .min(6, "A senha precisa ter no mínimo 6 carácteres.")
-    .max(20, "A senha precisa ter no máximo 20 carácteres.")
-    .required("Campo obrigatório."),
+    .min(6, 'A senha precisa ter no mínimo 6 carácteres.')
+    .max(20, 'A senha precisa ter no máximo 20 carácteres.')
+    .required('Campo obrigatório.'),
+  role: yup.string().required('Campo obrigatório.'),
 });
 
 export const Login = () => {
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
-  const [snackbarMessage, setSnackbarMessage] = useState<string>("");
+  const [snackbarMessage, setSnackbarMessage] = useState<string>('');
+  const [selectedRole, setSelectedRole] = useState<string>('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem('role');
+    setSelectedRole(storedRole || '');
+  }, []);
 
   const {
     register,
@@ -47,8 +63,8 @@ export const Login = () => {
         .then((response) => response.data);
 
       const user: User = response.find(
-        (user: Omit<User, "confirmPassword">) =>
-          user.email === data.email.toLowerCase()
+        (user: Omit<User, 'confirmPassword'>) =>
+          user.email === data.email.toLowerCase(),
       );
 
       if (
@@ -56,14 +72,14 @@ export const Login = () => {
         user.email === data.email &&
         user.password === data.password
       ) {
-        navigate("/saladeaula");
+        navigate('/saladeaula');
       } else {
-        setSnackbarMessage("Credenciais inválidas");
+        setSnackbarMessage('Credenciais inválidas');
         setOpenSnackbar(true);
       }
     } catch (error) {
       setSnackbarMessage(
-        "Erro ao realizar o login. Por favor, tente novamente."
+        'Erro ao realizar o login. Por favor, tente novamente.',
       );
       setOpenSnackbar(true);
     }
@@ -73,12 +89,16 @@ export const Login = () => {
     setOpenSnackbar(false);
   };
 
+  const handleRoleSelect = (event: SelectChangeEvent) => {
+    setSelectedRole(event.target.value);
+  };
+
   return (
     <S.Main>
       <S.Container>
         <S.Login>
           <S.BackToHome to="/" backgroundcolor="white" color="blue-dark">
-            <Home style={{ fontSize: "24px" }} />
+            <Home style={{ fontSize: '24px' }} />
             Home
           </S.BackToHome>
 
@@ -95,7 +115,7 @@ export const Login = () => {
                 id="email"
                 label="Email"
                 variant="outlined"
-                {...register("email")}
+                {...register('email')}
               />
               {<S.Errors>{errors.email?.message}</S.Errors>}
             </div>
@@ -106,17 +126,33 @@ export const Login = () => {
                 id="password"
                 label="Senha"
                 variant="outlined"
-                {...register("password")}
+                {...register('password')}
               />
               {<S.Errors>{errors.password?.message}</S.Errors>}
             </div>
+
+            <FormControl fullWidth>
+              <InputLabel id="role-label">Ambiente</InputLabel>
+              <Select
+                labelId="role-label"
+                id="role"
+                value={selectedRole}
+                label="Ambiente"
+                {...register('role')}
+                onChange={handleRoleSelect}
+              >
+                <MenuItem value={'aluno'}>Sala de Estudos</MenuItem>
+                <MenuItem value={'admin'}>Painel Administrativo</MenuItem>
+              </Select>
+              <S.Errors>{errors.role?.message}</S.Errors>
+            </FormControl>
             <S.SubmitButton type="submit">
               <LoginIcon />
               Entrar
             </S.SubmitButton>
           </S.LoginForm>
           <Snackbar
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             open={openSnackbar}
             autoHideDuration={3000}
             onClose={handleCloseSnackbar}
@@ -125,7 +161,7 @@ export const Login = () => {
               onClose={handleCloseSnackbar}
               severity="error"
               variant="filled"
-              sx={{ width: "100%" }}
+              sx={{ width: '100%' }}
             >
               {snackbarMessage}
             </Alert>
