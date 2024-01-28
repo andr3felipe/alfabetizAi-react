@@ -134,6 +134,19 @@ export const Header = () => {
                 </NavButton>
               </li>
             )}
+            {admin && (
+              <li>
+                <Button
+                  backgroundcolor="red-dark"
+                  onClick={() => {
+                    localStorage.removeItem("admin");
+                    navigate("/");
+                  }}
+                >
+                  Sair
+                </Button>
+              </li>
+            )}
           </ul>
         </S.Navigation>
         <HeaderMobile toggleMenu={toggleMenu} open={openMenu}>
