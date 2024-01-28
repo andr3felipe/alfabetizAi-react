@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { ButtonProps as Props } from ".";
+import styled from 'styled-components';
+import { ButtonProps as Props } from '.';
 
-type ButtonProps = Pick<Props, "color" | "backgroundcolor">;
+type ButtonProps = Pick<Props, 'color' | 'backgroundcolor'>;
 
 export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   display: block;
-  background-color: ${(props) => props.theme[props["backgroundcolor"]]};
+  background-color: ${(props) => props.theme[props['backgroundcolor']]};
   color: ${(props) =>
     props.color ? props.theme[props.color] : props.theme.white};
   font-size: 1rem;
@@ -19,7 +19,6 @@ export const Button = styled.button<ButtonProps>`
   border: none;
 
   &:hover {
-    opacity: 0.9;
-    color: ${(props) => props.theme["blue-dark"]};
+    transform: scale(1.05);
   }
 `;
