@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Modal } from "@mui/material";
+import { useState } from 'react';
+import { Modal } from '@mui/material';
 
-import * as S from "./styles";
-import logotipo from "../../assets/logotipo.svg";
-import kidsStudying from "../../assets/kids_studying.png";
-import WomanPhone from "../../assets/woman-phone.png";
-import NavButton from "../NavButton";
-import HeaderMobile from "../HeaderMobile";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "../Button";
+import * as S from './styles';
+import logotipo from '../../assets/logotipo.svg';
+import kidsStudying from '../../assets/kids_studying.webp';
+import WomanPhone from '../../assets/woman-phone.png';
+import NavButton from '../NavButton';
+import HeaderMobile from '../HeaderMobile';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from '../Button';
 
 export const Header = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -18,8 +18,8 @@ export const Header = () => {
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const aluno = localStorage.getItem("aluno");
-  const admin = localStorage.getItem("admin");
+  const aluno = localStorage.getItem('aluno');
+  const admin = localStorage.getItem('admin');
 
   function toggleMenu() {
     setOpenMenu((state) => !state);
@@ -69,7 +69,7 @@ export const Header = () => {
           </S.ModalContainer>
         </Modal>
 
-        <S.Link to={"/"} aria-label="Pagina inícial">
+        <S.Link to={'/'} aria-label="Pagina inícial">
           <img
             width="227"
             height="49"
@@ -80,7 +80,7 @@ export const Header = () => {
 
         <S.Navigation>
           <ul>
-            {pathname !== "/" && (
+            {pathname !== '/' && (
               <li>
                 <NavButton backgroundcolor="red-dark" color="blue-light" to="/">
                   Início
@@ -88,7 +88,7 @@ export const Header = () => {
               </li>
             )}
 
-            {pathname !== "/sala-de-aula" && admin && (
+            {pathname !== '/sala-de-aula' && admin && (
               <li>
                 <NavButton
                   backgroundcolor="red-dark"
@@ -100,7 +100,7 @@ export const Header = () => {
               </li>
             )}
 
-            {pathname !== "/painel-de-controle" && admin && (
+            {pathname !== '/painel-de-controle' && admin && (
               <li>
                 <NavButton
                   backgroundcolor="red-dark"
@@ -112,7 +112,7 @@ export const Header = () => {
               </li>
             )}
 
-            {pathname !== "/login" && !admin && (
+            {pathname !== '/login' && !admin && (
               <li>
                 <S.LoginButton
                   backgroundcolor="purple-light"
@@ -123,7 +123,7 @@ export const Header = () => {
                 </S.LoginButton>
               </li>
             )}
-            {pathname !== "/cadastro" && !admin && (
+            {pathname !== '/cadastro' && !admin && (
               <li>
                 <NavButton
                   backgroundcolor="red-dark"
@@ -139,8 +139,8 @@ export const Header = () => {
                 <Button
                   backgroundcolor="red-dark"
                   onClick={() => {
-                    localStorage.removeItem("admin");
-                    navigate("/");
+                    localStorage.removeItem('admin');
+                    navigate('/');
                   }}
                 >
                   Sair
@@ -151,7 +151,7 @@ export const Header = () => {
         </S.Navigation>
         <HeaderMobile toggleMenu={toggleMenu} open={openMenu}>
           <S.MobileNavigation>
-            {pathname !== "/" && (
+            {pathname !== '/' && (
               <li>
                 <NavButton
                   backgroundcolor="white"
@@ -163,7 +163,7 @@ export const Header = () => {
                 </NavButton>
               </li>
             )}
-            {pathname !== "/sala-de-aula" && aluno && (
+            {pathname !== '/sala-de-aula' && aluno && (
               <li>
                 <NavButton
                   backgroundcolor="white"
@@ -175,7 +175,7 @@ export const Header = () => {
                 </NavButton>
               </li>
             )}
-            {pathname !== "/sala-de-aula" && admin && (
+            {pathname !== '/sala-de-aula' && admin && (
               <li>
                 <NavButton
                   backgroundcolor="white"
@@ -187,7 +187,7 @@ export const Header = () => {
                 </NavButton>
               </li>
             )}
-            {pathname !== "/painel-de-controle" && admin && (
+            {pathname !== '/painel-de-controle' && admin && (
               <li>
                 <NavButton
                   backgroundcolor="white"
@@ -199,7 +199,7 @@ export const Header = () => {
                 </NavButton>
               </li>
             )}
-            {pathname !== "/login" && !aluno && !admin && (
+            {pathname !== '/login' && !aluno && !admin && (
               <li>
                 <S.LoginButton
                   backgroundcolor="white"
@@ -210,7 +210,7 @@ export const Header = () => {
                 </S.LoginButton>
               </li>
             )}
-            {pathname !== "/cadastro" && !admin && (
+            {pathname !== '/cadastro' && !admin && (
               <li>
                 <NavButton
                   backgroundcolor="white"
@@ -228,8 +228,8 @@ export const Header = () => {
                   backgroundcolor="white"
                   color="purple-light"
                   onClick={() => {
-                    localStorage.removeItem("admin");
-                    navigate("/");
+                    localStorage.removeItem('admin');
+                    navigate('/');
                   }}
                 >
                   Sair
