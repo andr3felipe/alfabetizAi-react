@@ -27,6 +27,7 @@ export function PrivateRoutes({ role }: PrivateRoutesProps) {
       redirect = "/login?role=aluno";
     }
   }
+
   return (
     <>
       {role === "admin" && <Header />}

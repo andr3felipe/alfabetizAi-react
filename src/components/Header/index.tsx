@@ -88,7 +88,7 @@ export const Header = () => {
               </li>
             )}
 
-            {pathname !== "/sala-de-aula" && (aluno || admin) && (
+            {pathname !== "/sala-de-aula" && admin && (
               <li>
                 <NavButton
                   backgroundcolor="red-dark"
@@ -112,7 +112,7 @@ export const Header = () => {
               </li>
             )}
 
-            {pathname !== "/login" && !admin && !aluno && (
+            {pathname !== "/login" && !admin && (
               <li>
                 <S.LoginButton
                   backgroundcolor="purple-light"
@@ -123,7 +123,7 @@ export const Header = () => {
                 </S.LoginButton>
               </li>
             )}
-            {pathname !== "/cadastro" && !admin && !aluno && (
+            {pathname !== "/cadastro" && !admin && (
               <li>
                 <NavButton
                   backgroundcolor="red-dark"
@@ -132,6 +132,19 @@ export const Header = () => {
                 >
                   Cadastre-se
                 </NavButton>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Button
+                  backgroundcolor="red-dark"
+                  onClick={() => {
+                    localStorage.removeItem("admin");
+                    navigate("/");
+                  }}
+                >
+                  Sair
+                </Button>
               </li>
             )}
           </ul>

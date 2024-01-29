@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-import { Button } from '../Button/styles';
+import { Button } from "../Button/styles";
 
 export const Header = styled.header`
-  background-color: ${(props) => props.theme['blue-light']};
+  background-color: ${(props) => props.theme["blue-light"]};
 `;
 
 export const Container = styled.div`
@@ -39,11 +39,11 @@ export const Link = styled(NavLink)`
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 700;
-  color: ${(props) => props.theme['red-dark']};
+  color: ${(props) => props.theme["red-dark"]};
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: ${(props) => props.theme['purple-light']};
+    color: ${(props) => props.theme["purple-light"]};
   }
 `;
 
@@ -86,7 +86,7 @@ export const CloseModalButton = styled.button`
   font-size: 1.5rem;
   font-weight: 700;
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme['red-dark']};
+  background-color: ${(props) => props.theme["red-dark"]};
   transition: all 0.3s;
 
   &:hover {
@@ -95,12 +95,13 @@ export const CloseModalButton = styled.button`
 `;
 
 export const NavLogin = styled(NavLink)`
-  background-color: ${(props) => props.theme['blue-light']};
+  background-color: ${(props) => props.theme["blue-light"]};
   padding: 1.25rem;
   border-radius: 10px;
   text-align: center;
-  transition: all 0.3s;
   max-width: 250px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
 
   img {
     width: 200px;
@@ -109,10 +110,16 @@ export const NavLogin = styled(NavLink)`
   h5 {
     font-size: 1.5rem;
     margin-top: 1.25rem;
-    color: ${(props) => props.theme['blue-dark']};
+    color: ${(props) => props.theme["blue-dark"]};
   }
 
   &:hover {
-    opacity: 0.8;
+    border-color: ${({ theme }) => theme.green};
+  }
+
+  @media (max-width: 600px) {
+    img {
+      width: 150px;
+    }
   }
 `;
