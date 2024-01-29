@@ -17,9 +17,9 @@ export const Button = styled.button<ButtonProps>`
   text-align: center;
   transition: all 0.2s ease-in-out;
   border: none;
+  width: 100%;
 
   &:hover {
-    opacity: 0.9;
-    color: ${(props) => props.theme["blue-dark"]};
+    transform: scale(1.05);
   }
 `;

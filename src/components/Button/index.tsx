@@ -6,6 +6,7 @@ export interface ButtonProps extends ComponentProps<"button"> {
   children: React.ReactNode;
   color?: keyof colors;
   backgroundcolor: keyof colors;
+  onClick?: () => void;
 }
 
 export const Button = ({ children, ...rest }: ButtonProps) => {
