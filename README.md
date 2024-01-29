@@ -139,68 +139,59 @@ npm run dev
 
 - **Descrição:** Permitir que novos usuários se cadastrem na aplicação.
 - **Requisitos Funcionais:**
-  - Endpoint para processar solicitações de cadastro.
+  - [ ] Endpoint para processar solicitações de cadastro.
 
 #### 8.2 Rota de Login:
 
 - **Descrição:** Permitir que usuários existentes façam login na aplicação.
 - **Requisitos Funcionais:**
-  - Endpoint para processar solicitações de login.
-  - Geração de token de autenticação para usuários válidos.
+  - [ ] Endpoint para processar solicitações de login.
+  - [ ] Geração de token de autenticação para usuários válidos.
 
-#### 8.3 CRUD Admin:
+#### 8.3 Endpoints Admin:
 
 - **Descrição:** Gerenciamento de administradores da aplicação.
 - **Requisitos Funcionais:**
-  - Endpoint para criar um novo administrador.
-  - Endpoint para recuperar a lista de administradores.
-  - Endpoint para atualizar informações de um administrador.
-  - Endpoint para excluir um administrador.
+  - [ ] Endpoint para criar um novo administrador.
+  - [ ] Endpoint para recuperar a lista de administradores.
+  - [ ] Endpoint para atualizar informações de um administrador.
+  - [ ] Endpoint para excluir um administrador.
 
-#### 8.4 CRUD Usuário:
-
-- **Descrição:** Gerenciamento de usuários.
-- **Requisitos Funcionais:**
-  - Endpoint para criar um novo usuário.
-  - Endpoint para recuperar a lista de usuários.
-  - Endpoint para atualizar informações de um usuário.
-  - Endpoint para excluir um usuário.
-
-#### 8.5 CRUD Alunos (Perfis):
+#### 8.4 Endpoints Alunos (Perfis):
 
 - **Descrição:** Gerenciamento de perfis de alunos.
 - **Requisitos Funcionais:**
-  - Endpoint para criar um novo perfil de aluno.
-  - Endpoint para recuperar a lista de perfis de alunos.
-  - Endpoint para atualizar informações de um perfil de aluno.
-  - Endpoint para excluir um perfil de aluno.
+  - [ ] Endpoint para criar um novo perfil de aluno.
+  - [ ] Endpoint para recuperar a lista de perfis de alunos.
+  - [ ] Endpoint para atualizar informações de um perfil de aluno.
+  - [ ] Endpoint para excluir um perfil de aluno.
 
-#### 8.6 CRUD Professor:
+#### 8.5 Endpoints Professor:
 
 - **Descrição:** Gerenciamento de professores.
 - **Requisitos Funcionais:**
-  - Endpoint para criar um novo perfil de professor.
-  - Endpoint para recuperar a lista de perfis de professores.
-  - Endpoint para atualizar informações de um perfil de professor.
-  - Endpoint para excluir um perfil de professor.
+  - [ ] Endpoint para criar um novo perfil de professor.
+  - [ ] Endpoint para recuperar a lista de perfis de professores.
+  - [ ] Endpoint para atualizar informações de um perfil de professor.
+  - [ ] Endpoint para excluir um perfil de professor.
 
-#### 8.7 CRUD Módulo:
+#### 8.6 Endpoints Módulo:
 
 - **Descrição:** Gerenciamento de módulos de ensino.
 - **Requisitos Funcionais:**
-  - Endpoint para criar um novo módulo.
-  - Endpoint para recuperar a lista de módulos.
-  - Endpoint para atualizar informações de um módulo.
-  - Endpoint para excluir um módulo.
+  - [ ] Endpoint para criar um novo módulo.
+  - [ ] Endpoint para recuperar a lista de módulos.
+  - [ ] Endpoint para atualizar informações de um módulo.
+  - [ ] Endpoint para excluir um módulo.
 
-#### 8.8 CRUD Desafio:
+#### 8.7 Endpoints Desafio:
 
 - **Descrição:** Gerenciamento de desafios associados aos módulos.
 - **Requisitos Funcionais:**
-  - Endpoint para criar um novo desafio.
-  - Endpoint para recuperar a lista de desafios.
-  - Endpoint para atualizar informações de um desafio.
-  - Endpoint para excluir um desafio.
+  - [ ] Endpoint para criar um novo desafio.
+  - [ ] Endpoint para recuperar a lista de desafios.
+  - [ ] Endpoint para atualizar informações de um desafio.
+  - [ ] Endpoint para excluir um desafio.
 
 ### 9. Desenvolvedores
 
