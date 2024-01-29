@@ -1,25 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../../components/Button";
-import * as S from "./styles";
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../../../components/Button';
+import * as S from './styles';
 
 export const Classroom = () => {
   const navigate = useNavigate();
-  localStorage.removeItem("admin");
+  localStorage.removeItem('admin');
 
   return (
     <S.Container>
-      <h1>Sala de aula</h1>
-      <div>
+      <S.Display>
+        <h1>Sala de aula</h1>
         <Button
           backgroundcolor="red-dark"
           onClick={() => {
-            localStorage.removeItem("aluno");
-            navigate("/");
+            localStorage.removeItem('aluno');
+            navigate('/');
           }}
         >
           Sair
         </Button>
-      </div>
+      </S.Display>
     </S.Container>
   );
 };
