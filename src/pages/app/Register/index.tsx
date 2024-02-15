@@ -126,7 +126,10 @@ export const Register = () => {
     console.log(responsible);
 
     try {
-      await registerResponsible(responsible);
+      await registerResponsible(responsible)
+        .unwrap()
+        .then((payload) => console.log("fulfilled", payload))
+        .catch((error) => console.error("rejected", error));
 
       console.log(await reponsibleData);
       console.log(error);
@@ -136,10 +139,7 @@ export const Register = () => {
       if (reponsibleData === undefined || status === "rejected" || isError) {
         setSnackbarMessage({
           variant: "error",
-          message:
-            error !== undefined
-              ? error.data.message
-              : "Erro ao cadastrar responsável.",
+          message: "Erro ao cadastrar responsável.",
         });
         setOpenSnackbar(true);
       } else {
@@ -149,6 +149,23 @@ export const Register = () => {
         });
         setOpenSnackbar(true);
         reset();
+      }
+
+      if (error) {
+        if ("status" in error) {
+          setSnackbarMessage({
+            variant: "error",
+            message: error.data.message ?? "Erro ao cadastrar responsável.",
+          });
+          console.log(error);
+        } else {
+          setSnackbarMessage({
+            variant: "error",
+            message: error.message ?? "Erro ao cadastrar responsável.",
+          });
+
+          console.log(error);
+        }
       }
     } catch (err) {
       setSnackbarMessage({
