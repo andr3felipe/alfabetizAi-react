@@ -71,4 +71,5 @@ export const {
   useLoginMutation,
   useGetStudentsByGuardianQuery,
   useGetLoggedUserDataQuery,
+  useRegisterReponsibleMutation,
 } = alfabetizaiApi;
