@@ -36,7 +36,7 @@ const loginSchema = yup.object().shape({
 export type Login = yup.InferType<typeof loginSchema>;
 
 export const Login = () => {
-  const { data: userData } = useGetLoggedUserDataQuery();
+  const { data: userData, refetch } = useGetLoggedUserDataQuery();
   const [loginMutation] = useLoginMutation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
@@ -69,18 +69,17 @@ export const Login = () => {
     try {
       const { email, senha } = data;
       const token = await loginMutation({ email, senha }).unwrap();
-      console.log(userData);
-
       localStorage.setItem('token', token);
+      refetch();
 
       if (data.role === 'admin') {
-        localStorage.setItem('admin', 'admin');
+        localStorage.setItem('admin', JSON.stringify(userData));
         navigate('/painel-de-controle');
         return;
       }
 
       if (data.role === 'aluno') {
-        localStorage.setItem('aluno', 'aluno');
+        localStorage.setItem('aluno', JSON.stringify(userData));
         navigate('/sala-de-aula');
         return;
       }
