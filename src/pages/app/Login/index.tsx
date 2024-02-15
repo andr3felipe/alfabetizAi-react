@@ -1,11 +1,10 @@
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { Home, Login as LoginIcon } from "@mui/icons-material";
-import { useEffect, useState } from "react";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { Home, Login as LoginIcon } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 
-import * as S from "./styles";
+import * as S from './styles';
 import {
   Alert,
   FormControl,
@@ -14,41 +13,46 @@ import {
   Select,
   SelectChangeEvent,
   Snackbar,
-} from "@mui/material";
-import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
-import { User } from "../Register";
+} from '@mui/material';
+import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
+import {
+  useGetLoggedUserDataQuery,
+  useLoginMutation,
+} from '../../../services/alfabetizaiApi';
 
 const loginSchema = yup.object().shape({
   email: yup
     .string()
-    .email("Digite um e-mail válido.")
-    .required("Campo obrigatório."),
+    .email('Digite um e-mail válido.')
+    .required('Campo obrigatório.'),
   senha: yup
     .string()
-    .min(6, "A senha precisa ter no mínimo 6 carácteres.")
-    .max(20, "A senha precisa ter no máximo 20 carácteres.")
-    .required("Campo obrigatório."),
-  role: yup.string().oneOf(["admin", "aluno"], "Campo obrigatório."),
+    .min(6, 'A senha precisa ter no mínimo 6 carácteres.')
+    .max(20, 'A senha precisa ter no máximo 20 carácteres.')
+    .required('Campo obrigatório.'),
+  role: yup.string().oneOf(['admin', 'aluno'], 'Campo obrigatório.'),
 });
 
-type Login = yup.InferType<typeof loginSchema>;
+export type Login = yup.InferType<typeof loginSchema>;
 
 export const Login = () => {
+  const { data: userData } = useGetLoggedUserDataQuery();
+  const [loginMutation] = useLoginMutation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
-  const [snackbarMessage, setSnackbarMessage] = useState<string>("");
+  const [snackbarMessage, setSnackbarMessage] = useState<string>('');
 
   const navigate = useNavigate();
-  const role = searchParams.get("role");
+  const role = searchParams.get('role');
 
   const [selectedRole, setSelectedRole] = useState<string>(
-    role === "admin" || role === "aluno" ? role : ""
+    role === 'admin' || role === 'aluno' ? role : '',
   );
 
   useEffect(() => {
-    const role = searchParams.get("role");
+    const role = searchParams.get('role');
 
-    if ((role && role === "admin") || role === "aluno") {
+    if ((role && role === 'admin') || role === 'aluno') {
       setSelectedRole(role);
     }
   }, [searchParams]);
@@ -63,34 +67,27 @@ export const Login = () => {
 
   const onSubmit = async (data: Login) => {
     try {
-      const response = await axios
-        .get(`http://localhost:3000/usuarios`)
-        .then((response) => response.data);
+      const { email, senha } = data;
+      const token = await loginMutation({ email, senha }).unwrap();
+      console.log(userData);
 
-      const user: User = response.find(
-        (user: Omit<User, "confirmar_senha">) =>
-          user.email === data.email.toLowerCase()
-      );
+      localStorage.setItem('token', token);
 
-      if (user && user.email === data.email && user.senha === data.senha) {
-        if (data.role === "admin") {
-          localStorage.setItem("admin", JSON.stringify(user));
-          navigate("/painel-de-controle");
-          return;
-        }
+      if (data.role === 'admin') {
+        localStorage.setItem('admin', 'admin');
+        navigate('/painel-de-controle');
+        return;
+      }
 
-        if (data.role === "aluno") {
-          localStorage.setItem("aluno", JSON.stringify(user));
-          navigate("/sala-de-aula");
-          return;
-        }
-      } else {
-        setSnackbarMessage("Credenciais inválidas");
-        setOpenSnackbar(true);
+      if (data.role === 'aluno') {
+        localStorage.setItem('aluno', 'aluno');
+        navigate('/sala-de-aula');
+        return;
       }
     } catch (error) {
+      console.log(error);
       setSnackbarMessage(
-        "Erro ao realizar o login. Por favor, tente novamente."
+        'Erro ao realizar o login. Por favor, tente novamente.',
       );
       setOpenSnackbar(true);
     }
@@ -110,7 +107,7 @@ export const Login = () => {
       <S.Container>
         <S.Login>
           <S.BackToHome to="/" backgroundcolor="white" color="blue-dark">
-            <Home style={{ fontSize: "24px" }} />
+            <Home style={{ fontSize: '24px' }} />
             Home
           </S.BackToHome>
 
@@ -128,7 +125,7 @@ export const Login = () => {
                 id="email"
                 label="Email"
                 variant="outlined"
-                {...register("email")}
+                {...register('email')}
               />
               {<S.Errors>{errors.email?.message}</S.Errors>}
             </div>
@@ -140,7 +137,7 @@ export const Login = () => {
                 id="senha"
                 label="Senha"
                 variant="outlined"
-                {...register("senha")}
+                {...register('senha')}
               />
               {<S.Errors>{errors.senha?.message}</S.Errors>}
             </div>
@@ -152,11 +149,11 @@ export const Login = () => {
                 id="role"
                 value={selectedRole}
                 label="Ambiente"
-                {...register("role")}
+                {...register('role')}
                 onChange={handleRoleSelect}
               >
-                <MenuItem value={"aluno"}>Sala de Aula</MenuItem>
-                <MenuItem value={"admin"}>Painel Administrativo</MenuItem>
+                <MenuItem value={'aluno'}>Sala de Aula</MenuItem>
+                <MenuItem value={'admin'}>Painel Administrativo</MenuItem>
               </Select>
               <S.Errors>{errors.role?.message}</S.Errors>
             </FormControl>
@@ -166,7 +163,7 @@ export const Login = () => {
             </S.SubmitButton>
           </S.LoginForm>
           <Snackbar
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             open={openSnackbar}
             autoHideDuration={3000}
             onClose={handleCloseSnackbar}
@@ -175,7 +172,7 @@ export const Login = () => {
               onClose={handleCloseSnackbar}
               severity="error"
               variant="filled"
-              sx={{ width: "100%" }}
+              sx={{ width: '100%' }}
             >
               {snackbarMessage}
             </Alert>
