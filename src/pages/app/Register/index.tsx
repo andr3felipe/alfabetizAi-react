@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Button } from "../../../components/Button";
-import axios from "axios";
+import { useRegisterReponsibleMutation } from "../../../services/alfabetizaiApi";
 
 const schema = yup
   .object({
@@ -86,6 +86,11 @@ export const Register = () => {
     message: "",
   });
 
+  const [
+    registerResponsible,
+    { data: reponsibleData, error, isLoading, status, isError, isSuccess },
+  ] = useRegisterReponsibleMutation();
+
   const {
     register,
     handleSubmit,
@@ -100,81 +105,60 @@ export const Register = () => {
   };
 
   const onSubmit = async (data: User) => {
-    const {
-      nome,
-      sobrenome,
-      email,
+    const dataDeNascimento = data.data_nascimento
+      .split("/")
+      .map(Number)
+      .reverse()
+      .join("-");
+
+    const cpf = data.cpf.replace(/\D/g, "");
+    const responsible = {
+      nome: data.nome,
+      sobrenome: data.sobrenome,
+      email: data.email,
       cpf,
-      telefone,
-      data_nascimento,
-      sexo,
-      senha,
-    } = data;
+      telefone: data.telefone,
+      dataDeNascimento,
+      sexo: data.sexo,
+      senha: data.senha,
+    };
+
+    console.log(responsible);
 
     try {
-      const users = await axios
-        .get("http://localhost:3000/usuarios")
-        .then((response) => response.data);
+      await registerResponsible(responsible);
 
-      const emailAlreadyExists = users.find(
-        (user: Omit<User, "confirmPassword">) =>
-          user.email.toLowerCase() === email.toLowerCase()
-      );
-
-      const cpfAlreadyExists = users.find(
-        (user: Omit<User, "confirmPassword">) => user.cpf === cpf
-      );
-
-      if (emailAlreadyExists) {
-        setSnackbarMessage({
-          variant: "error",
-          message: "Email já cadastrado!",
-        });
-        setOpenSnackbar(true);
-        return;
-      }
-
-      if (cpfAlreadyExists) {
-        setSnackbarMessage({
-          variant: "error",
-          message: "CPF já cadastrado!",
-        });
-        setOpenSnackbar(true);
-        return;
-      }
-
-      await axios
-        .post("http://localhost:3000/usuarios", {
-          nome,
-          sobrenome,
-          email,
-          cpf,
-          telefone,
-          data_nascimento,
-          sexo,
-          senha,
-        })
-        .then((response) => {
-          if (response.status === 201) {
-            setSnackbarMessage({
-              variant: "success",
-              message: "Cadastro concluido!",
-            });
-            setOpenSnackbar(true);
-            reset();
-            return;
-          } else {
-            setSnackbarMessage({
-              variant: "error",
-              message: "Erro ao se conectar com o servidor.",
-            });
-            setOpenSnackbar(true);
-            return;
-          }
-        });
-    } catch (error) {
+      console.log(await reponsibleData);
       console.log(error);
-      window.alert(error);
+      console.log(status);
+      console.log("isError", isError);
+
+      if (reponsibleData === undefined || status === "rejected" || isError) {
+        setSnackbarMessage({
+          variant: "error",
+          message:
+            error !== undefined
+              ? error.data.message
+              : "Erro ao cadastrar responsável.",
+        });
+        setOpenSnackbar(true);
+      } else {
+        setSnackbarMessage({
+          variant: "success",
+          message: "Responsável cadastrado com sucesso.",
+        });
+        setOpenSnackbar(true);
+        reset();
+      }
+    } catch (err) {
+      setSnackbarMessage({
+        variant: "error",
+        message: "Erro ao cadastrar responsável.",
+      });
+      setOpenSnackbar(true);
+      console.error("Erro ao cadastrar responsável.", error);
+      console.log(error);
+      console.log(err);
     }
   };
 
@@ -271,8 +255,8 @@ export const Register = () => {
             {...register("sexo")}
             onChange={handleChange}
           >
-            <MenuItem value={"Homem"}>Homem</MenuItem>
-            <MenuItem value={"Mulher"}>Mulher</MenuItem>
+            <MenuItem value={"M"}>Homem</MenuItem>
+            <MenuItem value={"F"}>Mulher</MenuItem>
             <MenuItem value={"Outros"}>Outros</MenuItem>
             <MenuItem value={"Prefiro não responder"}>
               Prefiro não responder
@@ -308,7 +292,7 @@ export const Register = () => {
           </S.ErrorsContainer>
         </S.InputContainer>
 
-        <Button backgroundcolor="red-dark" color="white">
+        <Button backgroundcolor="red-dark" color="white" disabled={isLoading}>
           Confirmar
         </Button>
       </S.Form>
