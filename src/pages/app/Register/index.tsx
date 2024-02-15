@@ -88,7 +88,7 @@ export const Register = () => {
 
   const [
     registerResponsible,
-    { data: reponsibleData, error, isLoading, status, isError, isSuccess },
+    { data: reponsibleData, error, isLoading, status, isError },
   ] = useRegisterReponsibleMutation();
 
   const {
@@ -152,20 +152,9 @@ export const Register = () => {
       }
 
       if (error) {
-        if ("status" in error) {
-          setSnackbarMessage({
-            variant: "error",
-            message: error.data.message ?? "Erro ao cadastrar responsável.",
-          });
-          console.log(error);
-        } else {
-          setSnackbarMessage({
-            variant: "error",
-            message: error.message ?? "Erro ao cadastrar responsável.",
-          });
-
-          console.log(error);
-        }
+        console.log(error);
+      } else {
+        console.log(error);
       }
     } catch (err) {
       setSnackbarMessage({
