@@ -67,7 +67,7 @@ Criar um website de alfabetização digital para contribuir com os Objetivos do 
 
 ### Paleta de Cores
 
-<img src="./src/assets/paleta_cores.png" alt="paleta de cores utilizada no projeto" title="Paleta de Cores">
+<img src="./src/assets/paleta_cores.webp" alt="paleta de cores utilizada no projeto" title="Paleta de Cores">
 
 ---
 

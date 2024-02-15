@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Button } from "../../../components/NavButton/styles";
-import { colors } from "../../../@types/colors";
+import styled from 'styled-components';
+import { Button } from '../../../components/NavButton/styles';
+import { colors } from '../../../@types/colors';
 
 type Heading = {
   color: keyof colors;
@@ -36,7 +36,7 @@ export const Heading = styled.h2<Heading>`
 `;
 
 export const Paragraph = styled.p<Paragraph>`
-  color: ${(props) => props.theme[props.color || "blue-dark"]};
+  color: ${(props) => props.theme[props.color || 'blue-dark']};
   font-weight: 500;
 `;
 
@@ -52,7 +52,7 @@ export const Hero = styled.section`
     flex-basis: 25rem;
 
     > h1 {
-      color: ${(props) => props.theme["purple-light"]};
+      color: ${(props) => props.theme['purple-light']};
       font-size: 2.25rem;
     }
 
@@ -73,12 +73,14 @@ export const Hero = styled.section`
       aspect-ratio: 445/485;
       width: 100%;
       max-width: 445px;
+      object-fit: cover;
+      max-height: 400px;
     }
   }
 `;
 
 export const OurCommitment = styled.section`
-  background-color: ${(props) => props.theme["blue-light"]};
+  background-color: ${(props) => props.theme['blue-light']};
 `;
 
 export const CommitmentContainer = styled.div`
@@ -96,6 +98,7 @@ export const CommitmentContainer = styled.div`
     margin: 0 auto;
     width: min(100%, 400px);
     aspect-ratio: 400/401;
+    object-fit: cover;
   }
 `;
 
@@ -122,7 +125,7 @@ export const DataTitle = styled.div`
 
   span {
     display: block;
-    color: ${(props) => props.theme["purple-light"]};
+    color: ${(props) => props.theme['purple-light']};
   }
 `;
 
@@ -186,6 +189,7 @@ export const FacilityAndSecurity = styled.section`
     > img {
       max-width: 100%;
       aspect-ratio: 442/435;
+      object-fit: cover;
     }
   }
 `;
@@ -193,7 +197,7 @@ export const FacilityAndSecurity = styled.section`
 export const AdvantagesAndBenefits = styled.section`
   margin: 0 auto;
   text-align: center;
-  background-color: ${(props) => props.theme["blue-light"]};
+  background-color: ${(props) => props.theme['blue-light']};
 
   h2 {
     margin-bottom: 2.5rem;
