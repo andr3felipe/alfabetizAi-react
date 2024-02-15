@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IStudent, ITeacher, IUser } from '../@types/interfaces';
 import { Login } from '../pages/app/Login';
+=======
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ITeacher } from "../@types/interfaces";
+>>>>>>> develop
 
 export const alfabetizaiApi = createApi({
-  reducerPath: 'alfabetizaiApi',
+  reducerPath: "alfabetizaiApi",
   baseQuery: fetchBaseQuery({
     baseUrl:
-      'http://vemser-dbc.dbccompany.com.br:39000/greicekelly/vs13-squad02-alfabetizai',
+      "http://vemser-dbc.dbccompany.com.br:39000/greicekelly/vs13-squad02-alfabetizai",
     prepareHeaders: (headers) => {
+<<<<<<< HEAD
       const token = localStorage.getItem('token');
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
+=======
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        headers.set("Authorization", token);
+>>>>>>> develop
       }
       return headers;
     },
@@ -51,12 +63,28 @@ export const alfabetizaiApi = createApi({
         };
       },
     }),
+
+    registerReponsible: builder.mutation({
+      query: (body) => ({
+        url: "/auth/cadastrar/responsavel",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      }),
+    }),
   }),
 });
 
+<<<<<<< HEAD
 export const {
   useGetAllTeachersQuery,
   useLoginMutation,
   useGetStudentsByGuardianQuery,
   useGetLoggedUserDataQuery,
 } = alfabetizaiApi;
+=======
+export const { useGetAllTeachersQuery, useRegisterReponsibleMutation } =
+  alfabetizaiApi;
+>>>>>>> develop

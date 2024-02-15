@@ -8,18 +8,18 @@ import {
   CastForEducation,
   Diversity1,
   AccessTime,
-} from "@mui/icons-material";
+} from '@mui/icons-material';
 
-import * as S from "./styles";
-import NavButton from "../../../components/NavButton";
-import kidReading from "../../../assets/kid-reading.webp";
-import womanPhone from "../../../assets/woman-phone.png";
-import kidsStudyingResized from "../../../assets/kids_studying-resized.png";
-import kidReadingMobile from "../../../assets/kid-reading-mobile.webp";
+import * as S from './styles';
+import NavButton from '../../../components/NavButton';
+import kidReading from '../../../assets/kid-reading.webp';
+import womanPhone from '../../../assets/woman-phone.png';
+import kidsStudyingResized from '../../../assets/kids_studying-resized.png';
+import kidReadingMobile from '../../../assets/kid-reading-mobile.png';
 
 export const Home = () => {
   const iconsSize = {
-    fontSize: "48px",
+    fontSize: '48px',
   };
 
   return (
@@ -73,7 +73,7 @@ export const Home = () => {
                 educacional global. Juntos, estamos construindo um caminho
                 sólido para a realização do ODS 4.6.
               </S.Paragraph>
-              <NavButton backgroundcolor="red-dark" to={"/cadastro"}>
+              <NavButton backgroundcolor="red-dark" to={'/cadastro'}>
                 Saiba mais
               </NavButton>
             </S.InfoContainer>
