@@ -7,14 +7,6 @@ export const alfabetizaiApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl:
       'http://vemser-dbc.dbccompany.com.br:39000/greicekelly/vs13-squad02-alfabetizai',
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem('token');
-
-      if (token) {
-        headers.set('Authorization', token);
-      }
-      return headers;
-    },
   }),
   endpoints: (builder) => ({
     getLoggedUserData: builder.query<IUser, void>({
@@ -33,7 +25,7 @@ export const alfabetizaiApi = createApi({
         },
       }),
     }),
-    getStudentsByGuardian: builder.query<IStudent[], void>({
+    getStudentsByResponsible: builder.query<IStudent[], void>({
       query: (id) => ({
         url: `/aluno/responsavel/${id}`,
         headers: {
@@ -69,7 +61,7 @@ export const alfabetizaiApi = createApi({
 export const {
   useGetAllTeachersQuery,
   useLoginMutation,
-  useGetStudentsByGuardianQuery,
+  useGetStudentsByResponsibleQuery,
   useGetLoggedUserDataQuery,
   useRegisterReponsibleMutation,
 } = alfabetizaiApi;
