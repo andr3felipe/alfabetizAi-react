@@ -21,7 +21,8 @@
 - [6. Tecnologias utilizadas](#6-tecnologias-utilizadas)
 - [7. Performance e Melhoria da Landing Page](#7-performance-e-melhoria-da-landing-page)
 - [8. Relatório de Requisitos do Backend para o Frontend](#8-relatório-de-requisitos-do-backend-para-o-frontend)
-- [9. Desenvolvedores](#9-desenvolvedores)
+- [9. Atualizações](#9-atualizações)
+- [10. Desenvolvedores](#10-desenvolvedores)
 
 ---
 
@@ -135,65 +136,74 @@ npm run dev
 
 ## 8. Relatório de Requisitos do Backend para o Frontend
 
-#### 8.1 Rota de Cadastro:
+### 8.1 Endpoints
+
+#### 8.1-1 Rota de Cadastro:
 
 - **Descrição:** Permitir que novos usuários se cadastrem na aplicação.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para processar solicitações de cadastro.
+  - [x] Endpoint para processar solicitações de cadastro.
 
-#### 8.2 Rota de Login:
+#### 8.1-2 Rota de Login:
 
 - **Descrição:** Permitir que usuários existentes façam login na aplicação.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para processar solicitações de login.
-  - [ ] Geração de token de autenticação para usuários válidos.
+  - [x] Endpoint para processar solicitações de login.
+  - [x] Geração de token de autenticação para usuários válidos.
 
-#### 8.3 Endpoints Admin:
+#### 8.1-3 Endpoints Admin:
 
 - **Descrição:** Gerenciamento de administradores da aplicação.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para criar um novo administrador.
-  - [ ] Endpoint para recuperar a lista de administradores.
-  - [ ] Endpoint para atualizar informações de um administrador.
-  - [ ] Endpoint para excluir um administrador.
+  - [x] Endpoint para criar um novo administrador.
+  - [x] Endpoint para recuperar a lista de administradores.
+  - [x] Endpoint para atualizar informações de um administrador.
+  - [x] Endpoint para excluir um administrador.
 
-#### 8.4 Endpoints Alunos (Perfis):
+#### 8.1-4 Endpoints Alunos (Perfis):
 
 - **Descrição:** Gerenciamento de perfis de alunos.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para criar um novo perfil de aluno.
-  - [ ] Endpoint para recuperar a lista de perfis de alunos.
-  - [ ] Endpoint para atualizar informações de um perfil de aluno.
-  - [ ] Endpoint para excluir um perfil de aluno.
+  - [x] Endpoint para criar um novo perfil de aluno.
+  - [x] Endpoint para recuperar a lista de perfis de alunos.
+  - [x] Endpoint para atualizar informações de um perfil de aluno.
+  - [x] Endpoint para excluir um perfil de aluno.
 
-#### 8.5 Endpoints Professor:
+#### 8.1-5 Endpoints Professor:
 
 - **Descrição:** Gerenciamento de professores.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para criar um novo perfil de professor.
-  - [ ] Endpoint para recuperar a lista de perfis de professores.
-  - [ ] Endpoint para atualizar informações de um perfil de professor.
-  - [ ] Endpoint para excluir um perfil de professor.
+  - [x] Endpoint para criar um novo perfil de professor.
+  - [x] Endpoint para recuperar a lista de perfis de professores.
+  - [x] Endpoint para atualizar informações de um perfil de professor.
+  - [x] Endpoint para excluir um perfil de professor.
 
-#### 8.6 Endpoints Módulo:
+#### 8.1-6 Endpoints Módulo:
 
 - **Descrição:** Gerenciamento de módulos de ensino.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para criar um novo módulo.
-  - [ ] Endpoint para recuperar a lista de módulos.
-  - [ ] Endpoint para atualizar informações de um módulo.
-  - [ ] Endpoint para excluir um módulo.
+  - [x] Endpoint para criar um novo módulo.
+  - [x] Endpoint para recuperar a lista de módulos.
+  - [x] Endpoint para atualizar informações de um módulo.
+  - [x] Endpoint para excluir um módulo.
 
-#### 8.7 Endpoints Desafio:
+#### 8.1-7 Endpoints Desafio:
 
 - **Descrição:** Gerenciamento de desafios associados aos módulos.
 - **Requisitos Funcionais:**
-  - [ ] Endpoint para criar um novo desafio.
-  - [ ] Endpoint para recuperar a lista de desafios.
-  - [ ] Endpoint para atualizar informações de um desafio.
-  - [ ] Endpoint para excluir um desafio.
+  - [x] Endpoint para criar um novo desafio.
+  - [x] Endpoint para recuperar a lista de desafios.
+  - [x] Endpoint para atualizar informações de um desafio.
+  - [x] Endpoint para excluir um desafio.
 
-### 9. Desenvolvedores
+### 9. Atualizações
+
+- [x] Configuração do Redux
+- [x] Implementação do RTK Query e Mutation
+- [x] Implementação da API no cadastro
+- [x] Implementação da API no login
+
+### 10. Desenvolvedores
 
 #### Davis Sampaio <br>
 
